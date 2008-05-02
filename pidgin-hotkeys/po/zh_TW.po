@@ -1,0 +1,67 @@
+# Chinese translations for pidgin-hotkeys package
+# traditional Chinese translation for pidgin-hotkeys.
+# Copyright (C) 2004 THE pidgin-hotkeys'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the pidgin-hotkeys package.
+# Ivan Wong <email@ivanwong.info>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pidgin-hotkeys 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-05-08 12:11+0800\n"
+"PO-Revision-Date: 2004-10-04 23:59+0800\n"
+"Last-Translator: Ivan Wong <email@ivanwong.info>\n"
+"Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/hotkeys.c:78
+msgid "Toggle List"
+msgstr "顯示或隱藏好友清單"
+
+#: src/hotkeys.c:79
+msgid "Read Message"
+msgstr "打開在隊列中的訊息"
+
+#: src/hotkeys.c:80
+msgid "Show Preferences Dialog"
+msgstr "顯示偏好設定對話方塊"
+
+#: src/hotkeys.c:81
+msgid "Show Accounts Dialog"
+msgstr "顯示賬號清單"
+
+#: src/hotkeys.c:262
+msgid "None"
+msgstr "未設定"
+
+#: src/hotkeys.c:474
+msgid "Hotkeys Configuration"
+msgstr "熱鍵設定"
+
+#. *< type
+#. *< ui_requirement
+#. *< flags
+#. *< dependencies
+#. *< priority
+#. *< id
+#: src/hotkeys.c:541
+msgid "Hotkeys"
+msgstr "熱鍵"
+
+#. *< name
+#. *< version
+#. *  summary
+#: src/hotkeys.c:544
+msgid "Configurable global hotkeys."
+msgstr "可設定全域熱鍵"
+
+#. *  description
+#: src/hotkeys.c:545
+msgid ""
+"This plugin allows you to assign global hotkeys for toggling buddy list and "
+"reading queued messages."
+msgstr ""
+"透過這插件，你可以設定「顯示或隱藏好友清單」及「打開在隊列中的訊息」的全域熱"
+"鍵"

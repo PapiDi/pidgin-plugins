@@ -1,0 +1,41 @@
+pidgin-hotkeys 0.2.3
+
+Ivan Wong:
+	* Gaim is renamed to Pidgin, so is pidgin-hotkeys
+
+--------------------------------------------------------------------------
+gaim-hotkeys 0.1.3
+
+Ivan Wong:
+	* Clean up some codes.
+	* Get rid of a warning on Win32.
+
+Pascal Bleser:
+	* German translation.
+
+--------------------------------------------------------------------------
+gaim-hotkeys 0.1.2
+
+Ivan Wong:
+	* Add hotkeys for "Show preferences dialog" and
+	  "Show account dialog".
+	* The Win32 backend is finally ready.
+	* Drop the intl directory and the source tarball is much smaller
+	  now.
+	* Traditional Chinese translation is updated.
+
+--------------------------------------------------------------------------
+gaim-hotkeys 0.1.1
+
+Ivan Wong:
+	* Support the "Super" (aka "Window") key as one of the modifiers.
+	* Split platform dependent and independent codes.
+
+Vincent Picavet:
+	* French translation.
+
+--------------------------------------------------------------------------
+gaim-hotkeys 0.1
+
+Ivan Wong:
+	* The first release!

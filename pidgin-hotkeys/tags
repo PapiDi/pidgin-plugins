@@ -1,0 +1,651 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+ACLOCAL	Makefile	/^ACLOCAL = ${SHELL} \/home\/sumitk\/osource\/pidgin-hotkeys-0.2.3\/missing --run aclocal-1.9$/;"	m
+ACLOCAL	src/Makefile	/^ACLOCAL = ${SHELL} \/home\/sumitk\/osource\/pidgin-hotkeys-0.2.3\/missing --run aclocal-1.9$/;"	m
+ACLOCAL_AMFLAGS	Makefile	/^ACLOCAL_AMFLAGS = -I \/opt\/gnome\/share\/aclocal$/;"	m
+ACLOCAL_AMFLAGS	src/Makefile	/^ACLOCAL_AMFLAGS = -I \/opt\/gnome\/share\/aclocal$/;"	m
+ACLOCAL_M4	Makefile	/^ACLOCAL_M4 = $(top_srcdir)\/aclocal.m4$/;"	m
+ACLOCAL_M4	src/Makefile	/^ACLOCAL_M4 = $(top_srcdir)\/aclocal.m4$/;"	m
+ALL_LINGUAS	Makefile	/^ALL_LINGUAS = fr sv zh_TW de$/;"	m
+ALL_LINGUAS	src/Makefile	/^ALL_LINGUAS = fr sv zh_TW de$/;"	m
+AMDEP_FALSE	Makefile	/^AMDEP_FALSE = #$/;"	m
+AMDEP_FALSE	src/Makefile	/^AMDEP_FALSE = #$/;"	m
+AMDEP_TRUE	Makefile	/^AMDEP_TRUE = $/;"	m
+AMDEP_TRUE	src/Makefile	/^AMDEP_TRUE = $/;"	m
+AMTAR	Makefile	/^AMTAR = ${SHELL} \/home\/sumitk\/osource\/pidgin-hotkeys-0.2.3\/missing --run tar$/;"	m
+AMTAR	src/Makefile	/^AMTAR = ${SHELL} \/home\/sumitk\/osource\/pidgin-hotkeys-0.2.3\/missing --run tar$/;"	m
+AM_CPPFLAGS	src/Makefile	/^AM_CPPFLAGS = \\$/;"	m
+AR	Makefile	/^AR = ar$/;"	m
+AR	src/Makefile	/^AR = ar$/;"	m
+AUTOCONF	Makefile	/^AUTOCONF = ${SHELL} \/home\/sumitk\/osource\/pidgin-hotkeys-0.2.3\/missing --run autoconf$/;"	m
+AUTOCONF	src/Makefile	/^AUTOCONF = ${SHELL} \/home\/sumitk\/osource\/pidgin-hotkeys-0.2.3\/missing --run autoconf$/;"	m
+AUTOHEADER	Makefile	/^AUTOHEADER = ${SHELL} \/home\/sumitk\/osource\/pidgin-hotkeys-0.2.3\/missing --run autoheader$/;"	m
+AUTOHEADER	src/Makefile	/^AUTOHEADER = ${SHELL} \/home\/sumitk\/osource\/pidgin-hotkeys-0.2.3\/missing --run autoheader$/;"	m
+AUTOMAKE	Makefile	/^AUTOMAKE = ${SHELL} \/home\/sumitk\/osource\/pidgin-hotkeys-0.2.3\/missing --run automake-1.9$/;"	m
+AUTOMAKE	src/Makefile	/^AUTOMAKE = ${SHELL} \/home\/sumitk\/osource\/pidgin-hotkeys-0.2.3\/missing --run automake-1.9$/;"	m
+AWK	Makefile	/^AWK = gawk$/;"	m
+AWK	src/Makefile	/^AWK = gawk$/;"	m
+CATALOGS	Makefile	/^CATALOGS =  fr.gmo sv.gmo zh_TW.gmo de.gmo$/;"	m
+CATALOGS	po/Makefile	/^CATALOGS =  fr.gmo sv.gmo zh_TW.gmo de.gmo$/;"	m
+CATALOGS	src/Makefile	/^CATALOGS =  fr.gmo sv.gmo zh_TW.gmo de.gmo$/;"	m
+CATOBJEXT	Makefile	/^CATOBJEXT = .gmo$/;"	m
+CATOBJEXT	po/Makefile	/^CATOBJEXT = .gmo$/;"	m
+CATOBJEXT	src/Makefile	/^CATOBJEXT = .gmo$/;"	m
+CC	Makefile	/^CC = gcc$/;"	m
+CC	po/Makefile	/^CC = gcc$/;"	m
+CC	src/Makefile	/^CC = gcc$/;"	m
+CCDEPMODE	Makefile	/^CCDEPMODE = depmode=gcc3$/;"	m
+CCDEPMODE	src/Makefile	/^CCDEPMODE = depmode=gcc3$/;"	m
+CCLD	src/Makefile	/^CCLD = $(CC)$/;"	m
+CDPATH	Makefile	/^am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd$/;"	m
+CDPATH	src/Makefile	/^am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd$/;"	m
+CFLAGS	Makefile	/^CFLAGS = -g -O2 -Wall -g3$/;"	m
+CFLAGS	po/Makefile	/^CFLAGS = -g -O2 -Wall -g3$/;"	m
+CFLAGS	src/Makefile	/^CFLAGS = -g -O2 -Wall -g3$/;"	m
+COMPILE	po/Makefile	/^COMPILE = $(CC) -c $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CFLAGS) $(XCFLAGS)$/;"	m
+COMPILE	src/Makefile	/^COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \\$/;"	m
+CONFIG_CLEAN_FILES	Makefile	/^CONFIG_CLEAN_FILES =$/;"	m
+CONFIG_CLEAN_FILES	src/Makefile	/^CONFIG_CLEAN_FILES =$/;"	m
+CONFIG_FILES	po/Makefile	/^	  && CONFIG_FILES=$(subdir)\/$@.in CONFIG_HEADERS= \\$/;"	m
+CONFIG_HEADER	Makefile	/^CONFIG_HEADER = hotkeys-config.h$/;"	m
+CONFIG_HEADER	src/Makefile	/^CONFIG_HEADER = $(top_builddir)\/hotkeys-config.h$/;"	m
+CONFIG_HEADERS	po/Makefile	/^	  && CONFIG_FILES=$(subdir)\/$@.in CONFIG_HEADERS= \\$/;"	m
+CPP	Makefile	/^CPP = gcc -E$/;"	m
+CPP	src/Makefile	/^CPP = gcc -E$/;"	m
+CPPFLAGS	Makefile	/^CPPFLAGS = $/;"	m
+CPPFLAGS	po/Makefile	/^CPPFLAGS = $/;"	m
+CPPFLAGS	src/Makefile	/^CPPFLAGS = $/;"	m
+CTAGS	Makefile	/^CTAGS = ctags$/;"	m
+CTAGS	src/Makefile	/^CTAGS = ctags$/;"	m
+CXX	Makefile	/^CXX = g++$/;"	m
+CXX	src/Makefile	/^CXX = g++$/;"	m
+CXXCPP	Makefile	/^CXXCPP = g++ -E$/;"	m
+CXXCPP	src/Makefile	/^CXXCPP = g++ -E$/;"	m
+CXXDEPMODE	Makefile	/^CXXDEPMODE = depmode=gcc3$/;"	m
+CXXDEPMODE	src/Makefile	/^CXXDEPMODE = depmode=gcc3$/;"	m
+CXXFLAGS	Makefile	/^CXXFLAGS = -g -O2$/;"	m
+CXXFLAGS	src/Makefile	/^CXXFLAGS = -g -O2$/;"	m
+CYGPATH_W	Makefile	/^CYGPATH_W = echo$/;"	m
+CYGPATH_W	src/Makefile	/^CYGPATH_W = echo$/;"	m
+ControlMask	src/hotkeys.c	52;"	d	file:
+DATADIRNAME	Makefile	/^DATADIRNAME = share$/;"	m
+DATADIRNAME	src/Makefile	/^DATADIRNAME = share$/;"	m
+DEFAULT_INCLUDES	src/Makefile	/^DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)$/;"	m
+DEFS	Makefile	/^DEFS = -DHAVE_CONFIG_H$/;"	m
+DEFS	po/Makefile	/^DEFS = -DHAVE_CONFIG_H$/;"	m
+DEFS	src/Makefile	/^DEFS = -DHAVE_CONFIG_H$/;"	m
+DEPDIR	Makefile	/^DEPDIR = .deps$/;"	m
+DEPDIR	src/Makefile	/^DEPDIR = .deps$/;"	m
+DESTDIR	Makefile	/^	       && $(MAKE) $(AM_MAKEFLAGS) DESTDIR="$$dc_destdir" \\$/;"	m
+DESTDIR	Makefile	/^	       && $(MAKE) $(AM_MAKEFLAGS) DESTDIR="$$dc_destdir" install \\$/;"	m
+DESTDIR	Makefile	/^	       && $(MAKE) $(AM_MAKEFLAGS) DESTDIR="$$dc_destdir" uninstall \\$/;"	m
+DISTFILES	Makefile	/^DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)$/;"	m
+DISTFILES	po/Makefile	/^DISTFILES = ChangeLog Makefile.in.in POTFILES.in $(GETTEXT_PACKAGE).pot \\$/;"	m
+DISTFILES	src/Makefile	/^DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)$/;"	m
+DIST_ARCHIVES	Makefile	/^DIST_ARCHIVES = $(distdir).tar.gz$/;"	m
+DIST_COMMON	Makefile	/^DIST_COMMON = README $(am__configure_deps) $(srcdir)\/Makefile.am \\$/;"	m
+DIST_COMMON	src/Makefile	/^DIST_COMMON = $(srcdir)\/Makefile.am $(srcdir)\/Makefile.in$/;"	m
+DIST_SOURCES	Makefile	/^DIST_SOURCES =$/;"	m
+DIST_SOURCES	src/Makefile	/^DIST_SOURCES = $(am__hotkeys_la_SOURCES_DIST)$/;"	m
+DIST_SUBDIRS	Makefile	/^DIST_SUBDIRS = $(SUBDIRS)$/;"	m
+ECHO	Makefile	/^ECHO = echo$/;"	m
+ECHO	src/Makefile	/^ECHO = echo$/;"	m
+ECHO_C	Makefile	/^ECHO_C = $/;"	m
+ECHO_C	src/Makefile	/^ECHO_C = $/;"	m
+ECHO_N	Makefile	/^ECHO_N = -n$/;"	m
+ECHO_N	src/Makefile	/^ECHO_N = -n$/;"	m
+ECHO_T	Makefile	/^ECHO_T = $/;"	m
+ECHO_T	src/Makefile	/^ECHO_T = $/;"	m
+EGREP	Makefile	/^EGREP = \/usr\/bin\/grep -E$/;"	m
+EGREP	src/Makefile	/^EGREP = \/usr\/bin\/grep -E$/;"	m
+ENABLE_NLS	hotkeys-config.h	5;"	d
+ETAGS	Makefile	/^ETAGS = etags$/;"	m
+ETAGS	src/Makefile	/^ETAGS = etags$/;"	m
+EXEEXT	Makefile	/^EXEEXT = $/;"	m
+EXEEXT	src/Makefile	/^EXEEXT = $/;"	m
+EXTRA_DIST	Makefile	/^EXTRA_DIST = ChangeLog$/;"	m
+EXTRA_DIST	src/Makefile	/^EXTRA_DIST = \\$/;"	m
+F77	Makefile	/^F77 = $/;"	m
+F77	src/Makefile	/^F77 = $/;"	m
+FFLAGS	Makefile	/^FFLAGS = $/;"	m
+FFLAGS	src/Makefile	/^FFLAGS = $/;"	m
+FilterFunc	src/hotkeys.h	/^typedef gboolean (*FilterFunc)(gpointer event_data);$/;"	t
+GENCAT	po/Makefile	/^GENCAT = @GENCAT@$/;"	m
+GETTEXT_PACKAGE	Makefile	/^GETTEXT_PACKAGE = pidgin-hotkeys$/;"	m
+GETTEXT_PACKAGE	hotkeys-config.h	8;"	d
+GETTEXT_PACKAGE	po/Makefile	/^GETTEXT_PACKAGE = pidgin-hotkeys$/;"	m
+GETTEXT_PACKAGE	src/Makefile	/^GETTEXT_PACKAGE = pidgin-hotkeys$/;"	m
+GMOFILES	Makefile	/^GMOFILES =  fr.gmo sv.gmo zh_TW.gmo de.gmo$/;"	m
+GMOFILES	po/Makefile	/^GMOFILES =  fr.gmo sv.gmo zh_TW.gmo de.gmo$/;"	m
+GMOFILES	src/Makefile	/^GMOFILES =  fr.gmo sv.gmo zh_TW.gmo de.gmo$/;"	m
+GMSGFMT	Makefile	/^GMSGFMT = \/usr\/bin\/msgfmt$/;"	m
+GMSGFMT	po/Makefile	/^GMSGFMT = \/usr\/bin\/msgfmt$/;"	m
+GMSGFMT	src/Makefile	/^GMSGFMT = \/usr\/bin\/msgfmt$/;"	m
+GREP	Makefile	/^GREP = \/usr\/bin\/grep$/;"	m
+GREP	src/Makefile	/^GREP = \/usr\/bin\/grep$/;"	m
+GTK_CFLAGS	Makefile	/^GTK_CFLAGS = -I\/usr\/include\/cairo -I\/usr\/include\/freetype2 -I\/usr\/X11R6\/include -I\/usr\/include\/libpng12 -I\/opt\/gnome\/include\/gtk-2.0 -I\/opt\/gnome\/lib\/gtk-2.0\/include -I\/opt\/gnome\/include\/atk-1.0 -I\/opt\/gnome\/include\/pango-1.0 -I\/opt\/gnome\/include\/glib-2.0 -I\/opt\/gnome\/lib\/glib-2.0\/include  $/;"	m
+GTK_CFLAGS	src/Makefile	/^GTK_CFLAGS = -I\/usr\/include\/cairo -I\/usr\/include\/freetype2 -I\/usr\/X11R6\/include -I\/usr\/include\/libpng12 -I\/opt\/gnome\/include\/gtk-2.0 -I\/opt\/gnome\/lib\/gtk-2.0\/include -I\/opt\/gnome\/include\/atk-1.0 -I\/opt\/gnome\/include\/pango-1.0 -I\/opt\/gnome\/include\/glib-2.0 -I\/opt\/gnome\/lib\/glib-2.0\/include  $/;"	m
+GTK_LIBS	Makefile	/^GTK_LIBS = -L\/usr\/X11R6\/lib -L\/opt\/gnome\/lib -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lpango-1.0 -lcairo -lgobject-2.0 -lgmodule-2.0 -ldl -lglib-2.0 -lfreetype -lfontconfig -lXrender -lX11 -lXext -lpng12 -lz -lglitz -lm  $/;"	m
+GTK_LIBS	src/Makefile	/^GTK_LIBS = -L\/usr\/X11R6\/lib -L\/opt\/gnome\/lib -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lpango-1.0 -lcairo -lgobject-2.0 -lgmodule-2.0 -ldl -lglib-2.0 -lfreetype -lfontconfig -lXrender -lX11 -lXext -lpng12 -lz -lglitz -lm  $/;"	m
+GZIP	Makefile	/^	  GZIP=$(GZIP_ENV) gunzip -c $(distdir).shar.gz | unshar ;;\\$/;"	m
+GZIP	Makefile	/^	  GZIP=$(GZIP_ENV) gunzip -c $(distdir).tar.gz | $(am__untar) ;;\\$/;"	m
+GZIP	Makefile	/^	shar $(distdir) | GZIP=$(GZIP_ENV) gzip -c >$(distdir).shar.gz$/;"	m
+GZIP	Makefile	/^	tardir=$(distdir) && $(am__tar) | GZIP=$(GZIP_ENV) gzip -c >$(distdir).tar.gz$/;"	m
+GZIP_ENV	Makefile	/^GZIP_ENV = --best$/;"	m
+G_GNUC_NULL_TERMINATED	src/hotkeys.c	25;"	d	file:
+G_GNUC_NULL_TERMINATED	src/hotkeys.c	27;"	d	file:
+HAVE_BIND_TEXTDOMAIN_CODESET	hotkeys-config.h	11;"	d
+HAVE_DCGETTEXT	hotkeys-config.h	14;"	d
+HAVE_DLFCN_H	hotkeys-config.h	17;"	d
+HAVE_GETTEXT	hotkeys-config.h	20;"	d
+HAVE_INTTYPES_H	hotkeys-config.h	23;"	d
+HAVE_LC_MESSAGES	hotkeys-config.h	26;"	d
+HAVE_LOCALE_H	hotkeys-config.h	29;"	d
+HAVE_MEMORY_H	hotkeys-config.h	32;"	d
+HAVE_STDINT_H	hotkeys-config.h	35;"	d
+HAVE_STDLIB_H	hotkeys-config.h	38;"	d
+HAVE_STRINGS_H	hotkeys-config.h	41;"	d
+HAVE_STRING_H	hotkeys-config.h	44;"	d
+HAVE_SYS_STAT_H	hotkeys-config.h	47;"	d
+HAVE_SYS_TYPES_H	hotkeys-config.h	50;"	d
+HAVE_UNISTD_H	hotkeys-config.h	53;"	d
+HOTKEYS_PLUGIN_ID	src/hotkeys.c	432;"	d	file:
+HotkeyEntry	src/hotkeys.h	/^} HotkeyEntry;$/;"	t
+INCLUDES	po/Makefile	/^INCLUDES = -I.. -I$(top_srcdir)\/intl$/;"	m
+INSTALL	Makefile	/^INSTALL = \/usr\/bin\/install -c$/;"	m
+INSTALL	po/Makefile	/^INSTALL = \/usr\/bin\/install -c$/;"	m
+INSTALL	src/Makefile	/^INSTALL = \/usr\/bin\/install -c$/;"	m
+INSTALL_DATA	Makefile	/^INSTALL_DATA = ${INSTALL} -m 644$/;"	m
+INSTALL_DATA	po/Makefile	/^INSTALL_DATA = ${INSTALL} -m 644$/;"	m
+INSTALL_DATA	src/Makefile	/^INSTALL_DATA = ${INSTALL} -m 644$/;"	m
+INSTALL_HEADER	Makefile	/^INSTALL_HEADER = $(INSTALL_DATA)$/;"	m
+INSTALL_HEADER	src/Makefile	/^INSTALL_HEADER = $(INSTALL_DATA)$/;"	m
+INSTALL_PROGRAM	Makefile	/^	$(MAKE) $(AM_MAKEFLAGS) INSTALL_PROGRAM="$(INSTALL_STRIP_PROGRAM)" \\$/;"	m
+INSTALL_PROGRAM	Makefile	/^INSTALL_PROGRAM = ${INSTALL}$/;"	m
+INSTALL_PROGRAM	src/Makefile	/^	$(MAKE) $(AM_MAKEFLAGS) INSTALL_PROGRAM="$(INSTALL_STRIP_PROGRAM)" \\$/;"	m
+INSTALL_PROGRAM	src/Makefile	/^INSTALL_PROGRAM = ${INSTALL}$/;"	m
+INSTALL_PROGRAM_ENV	Makefile	/^	    echo "INSTALL_PROGRAM_ENV=STRIPPROG='$(STRIP)'"` install$/;"	m
+INSTALL_PROGRAM_ENV	src/Makefile	/^	    echo "INSTALL_PROGRAM_ENV=STRIPPROG='$(STRIP)'"` install$/;"	m
+INSTALL_SCRIPT	Makefile	/^INSTALL_SCRIPT = ${INSTALL}$/;"	m
+INSTALL_SCRIPT	src/Makefile	/^INSTALL_SCRIPT = ${INSTALL}$/;"	m
+INSTALL_STRIP_FLAG	Makefile	/^	  install_sh_PROGRAM="$(INSTALL_STRIP_PROGRAM)" INSTALL_STRIP_FLAG=-s \\$/;"	m
+INSTALL_STRIP_FLAG	src/Makefile	/^	  install_sh_PROGRAM="$(INSTALL_STRIP_PROGRAM)" INSTALL_STRIP_FLAG=-s \\$/;"	m
+INSTALL_STRIP_PROGRAM	Makefile	/^INSTALL_STRIP_PROGRAM = ${SHELL} $(install_sh) -c -s$/;"	m
+INSTALL_STRIP_PROGRAM	src/Makefile	/^INSTALL_STRIP_PROGRAM = ${SHELL} $(install_sh) -c -s$/;"	m
+INSTOBJEXT	Makefile	/^INSTOBJEXT = .mo$/;"	m
+INSTOBJEXT	po/Makefile	/^INSTOBJEXT = .mo$/;"	m
+INSTOBJEXT	src/Makefile	/^INSTOBJEXT = .mo$/;"	m
+INTLLIBS	Makefile	/^INTLLIBS = $/;"	m
+INTLLIBS	src/Makefile	/^INTLLIBS = $/;"	m
+KeyCode	src/hotkeys.h	/^typedef gint KeyCode;$/;"	t
+LDFLAGS	Makefile	/^LDFLAGS = $/;"	m
+LDFLAGS	src/Makefile	/^LDFLAGS = $/;"	m
+LIBOBJS	Makefile	/^LIBOBJS = $/;"	m
+LIBOBJS	src/Makefile	/^LIBOBJS = $/;"	m
+LIBS	Makefile	/^LIBS = $/;"	m
+LIBS	src/Makefile	/^LIBS = $/;"	m
+LIBTOOL	Makefile	/^LIBTOOL = $(SHELL) $(top_builddir)\/libtool$/;"	m
+LIBTOOL	src/Makefile	/^LIBTOOL = $(SHELL) $(top_builddir)\/libtool$/;"	m
+LINK	src/Makefile	/^LINK = $(LIBTOOL) --tag=CC --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \\$/;"	m
+LN_S	Makefile	/^LN_S = ln -s$/;"	m
+LN_S	src/Makefile	/^LN_S = ln -s$/;"	m
+LTCOMPILE	src/Makefile	/^LTCOMPILE = $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) \\$/;"	m
+LTLIBOBJS	Makefile	/^LTLIBOBJS = $/;"	m
+LTLIBOBJS	src/Makefile	/^LTLIBOBJS = $/;"	m
+LTLIBRARIES	src/Makefile	/^LTLIBRARIES = $(plugin_LTLIBRARIES)$/;"	m
+MAINT	Makefile	/^MAINT = #$/;"	m
+MAINT	src/Makefile	/^MAINT = #$/;"	m
+MAINTAINER_MODE_FALSE	Makefile	/^MAINTAINER_MODE_FALSE = $/;"	m
+MAINTAINER_MODE_FALSE	src/Makefile	/^MAINTAINER_MODE_FALSE = $/;"	m
+MAINTAINER_MODE_TRUE	Makefile	/^MAINTAINER_MODE_TRUE = #$/;"	m
+MAINTAINER_MODE_TRUE	src/Makefile	/^MAINTAINER_MODE_TRUE = #$/;"	m
+MAKEINFO	Makefile	/^MAKEINFO = ${SHELL} \/home\/sumitk\/osource\/pidgin-hotkeys-0.2.3\/missing --run makeinfo$/;"	m
+MAKEINFO	src/Makefile	/^MAKEINFO = ${SHELL} \/home\/sumitk\/osource\/pidgin-hotkeys-0.2.3\/missing --run makeinfo$/;"	m
+MKINSTALLDIRS	Makefile	/^MKINSTALLDIRS = .\/mkinstalldirs$/;"	m
+MKINSTALLDIRS	po/Makefile	/^MKINSTALLDIRS = $(top_srcdir)\/.\/mkinstalldirs$/;"	m
+MKINSTALLDIRS	src/Makefile	/^MKINSTALLDIRS = .\/mkinstalldirs$/;"	m
+MSGFMT	Makefile	/^MSGFMT = \/usr\/bin\/msgfmt$/;"	m
+MSGFMT	po/Makefile	/^MSGFMT = \/usr\/bin\/msgfmt$/;"	m
+MSGFMT	src/Makefile	/^MSGFMT = \/usr\/bin\/msgfmt$/;"	m
+MSGFMT_OPTS	Makefile	/^MSGFMT_OPTS = -c$/;"	m
+MSGFMT_OPTS	src/Makefile	/^MSGFMT_OPTS = -c$/;"	m
+MSGMERGE	po/Makefile	/^MSGMERGE = msgmerge$/;"	m
+Mod1Mask	src/hotkeys.c	53;"	d	file:
+Mod4Mask	src/hotkeys.c	54;"	d	file:
+NORMAL_INSTALL	Makefile	/^NORMAL_INSTALL = :$/;"	m
+NORMAL_INSTALL	src/Makefile	/^NORMAL_INSTALL = :$/;"	m
+NORMAL_UNINSTALL	Makefile	/^NORMAL_UNINSTALL = :$/;"	m
+NORMAL_UNINSTALL	src/Makefile	/^NORMAL_UNINSTALL = :$/;"	m
+N_	src/hotkeys.h	34;"	d
+N_	src/hotkeys.h	36;"	d
+N_	src/hotkeys.h	40;"	d
+OBJEXT	Makefile	/^OBJEXT = o$/;"	m
+OBJEXT	src/Makefile	/^OBJEXT = o$/;"	m
+PACKAGE	Makefile	/^PACKAGE = pidgin-hotkeys$/;"	m
+PACKAGE	hotkeys-config.h	56;"	d
+PACKAGE	po/Makefile	/^PACKAGE = pidgin-hotkeys$/;"	m
+PACKAGE	src/Makefile	/^PACKAGE = pidgin-hotkeys$/;"	m
+PACKAGE_BUGREPORT	Makefile	/^PACKAGE_BUGREPORT = email@ivanwong.info$/;"	m
+PACKAGE_BUGREPORT	hotkeys-config.h	59;"	d
+PACKAGE_BUGREPORT	src/Makefile	/^PACKAGE_BUGREPORT = email@ivanwong.info$/;"	m
+PACKAGE_NAME	Makefile	/^PACKAGE_NAME = pidgin-hotkeys$/;"	m
+PACKAGE_NAME	hotkeys-config.h	62;"	d
+PACKAGE_NAME	src/Makefile	/^PACKAGE_NAME = pidgin-hotkeys$/;"	m
+PACKAGE_STRING	Makefile	/^PACKAGE_STRING = pidgin-hotkeys 0.2.3$/;"	m
+PACKAGE_STRING	hotkeys-config.h	65;"	d
+PACKAGE_STRING	src/Makefile	/^PACKAGE_STRING = pidgin-hotkeys 0.2.3$/;"	m
+PACKAGE_TARNAME	Makefile	/^PACKAGE_TARNAME = pidgin-hotkeys$/;"	m
+PACKAGE_TARNAME	hotkeys-config.h	68;"	d
+PACKAGE_TARNAME	src/Makefile	/^PACKAGE_TARNAME = pidgin-hotkeys$/;"	m
+PACKAGE_VERSION	Makefile	/^PACKAGE_VERSION = 0.2.3$/;"	m
+PACKAGE_VERSION	hotkeys-config.h	71;"	d
+PACKAGE_VERSION	src/Makefile	/^PACKAGE_VERSION = 0.2.3$/;"	m
+PATH_SEPARATOR	Makefile	/^PATH_SEPARATOR = :$/;"	m
+PATH_SEPARATOR	src/Makefile	/^PATH_SEPARATOR = :$/;"	m
+PIDGIN_CFLAGS	Makefile	/^PIDGIN_CFLAGS = -I\/usr\/local\/include\/pidgin -I\/usr\/local\/include\/libpurple -I\/usr\/include\/cairo -I\/usr\/include\/freetype2 -I\/usr\/X11R6\/include -I\/usr\/include\/libpng12 -I\/opt\/gnome\/include\/gtk-2.0 -I\/opt\/gnome\/lib\/gtk-2.0\/include -I\/opt\/gnome\/include\/atk-1.0 -I\/opt\/gnome\/include\/pango-1.0 -I\/opt\/gnome\/include\/glib-2.0 -I\/opt\/gnome\/lib\/glib-2.0\/include  $/;"	m
+PIDGIN_CFLAGS	src/Makefile	/^PIDGIN_CFLAGS = -I\/usr\/local\/include\/pidgin -I\/usr\/local\/include\/libpurple -I\/usr\/include\/cairo -I\/usr\/include\/freetype2 -I\/usr\/X11R6\/include -I\/usr\/include\/libpng12 -I\/opt\/gnome\/include\/gtk-2.0 -I\/opt\/gnome\/lib\/gtk-2.0\/include -I\/opt\/gnome\/include\/atk-1.0 -I\/opt\/gnome\/include\/pango-1.0 -I\/opt\/gnome\/include\/glib-2.0 -I\/opt\/gnome\/lib\/glib-2.0\/include  $/;"	m
+PIDGIN_HOTKEY_READ_MSG	src/hotkeys.h	/^    PIDGIN_HOTKEY_READ_MSG,$/;"	e
+PIDGIN_HOTKEY_SET_AWAY	src/hotkeys.h	/^    PIDGIN_HOTKEY_SET_AWAY    $/;"	e
+PIDGIN_HOTKEY_SHOW_ACC	src/hotkeys.h	/^    PIDGIN_HOTKEY_SHOW_ACC,$/;"	e
+PIDGIN_HOTKEY_SHOW_PREF	src/hotkeys.h	/^    PIDGIN_HOTKEY_SHOW_PREF,$/;"	e
+PIDGIN_HOTKEY_TOGGLE_BLIST	src/hotkeys.h	/^    PIDGIN_HOTKEY_TOGGLE_BLIST,$/;"	e
+PIDGIN_LIBS	Makefile	/^PIDGIN_LIBS = -L\/usr\/local\/lib -L\/usr\/X11R6\/lib -L\/opt\/gnome\/lib -lgtk-x11-2.0 -lpurple -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lpango-1.0 -lcairo -lgobject-2.0 -lgmodule-2.0 -ldl -lfreetype -lfontconfig -lXrender -lX11 -lXext -lpng12 -lz -lglitz -lm -lglib-2.0  $/;"	m
+PIDGIN_LIBS	src/Makefile	/^PIDGIN_LIBS = -L\/usr\/local\/lib -L\/usr\/X11R6\/lib -L\/opt\/gnome\/lib -lgtk-x11-2.0 -lpurple -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lpango-1.0 -lcairo -lgobject-2.0 -lgmodule-2.0 -ldl -lfreetype -lfontconfig -lXrender -lX11 -lXext -lpng12 -lz -lglitz -lm -lglib-2.0  $/;"	m
+PKG_CONFIG	Makefile	/^PKG_CONFIG = \/usr\/bin\/pkg-config$/;"	m
+PKG_CONFIG	src/Makefile	/^PKG_CONFIG = \/usr\/bin\/pkg-config$/;"	m
+POFILES	Makefile	/^POFILES =  fr.po sv.po zh_TW.po de.po$/;"	m
+POFILES	po/Makefile	/^POFILES =  fr.po sv.po zh_TW.po de.po$/;"	m
+POFILES	src/Makefile	/^POFILES =  fr.po sv.po zh_TW.po de.po$/;"	m
+POST_INSTALL	Makefile	/^POST_INSTALL = :$/;"	m
+POST_INSTALL	src/Makefile	/^POST_INSTALL = :$/;"	m
+POST_UNINSTALL	Makefile	/^POST_UNINSTALL = :$/;"	m
+POST_UNINSTALL	src/Makefile	/^POST_UNINSTALL = :$/;"	m
+POSUB	Makefile	/^POSUB = po$/;"	m
+POSUB	src/Makefile	/^POSUB = po$/;"	m
+POTFILES	po/Makefile	/^POTFILES = \\$/;"	m
+PO_IN_DATADIR_FALSE	Makefile	/^PO_IN_DATADIR_FALSE = $/;"	m
+PO_IN_DATADIR_FALSE	src/Makefile	/^PO_IN_DATADIR_FALSE = $/;"	m
+PO_IN_DATADIR_TRUE	Makefile	/^PO_IN_DATADIR_TRUE = $/;"	m
+PO_IN_DATADIR_TRUE	src/Makefile	/^PO_IN_DATADIR_TRUE = $/;"	m
+PREF_PATH	src/hotkeys.c	63;"	d	file:
+PREF_ROOT	src/hotkeys.c	62;"	d	file:
+PRE_INSTALL	Makefile	/^PRE_INSTALL = :$/;"	m
+PRE_INSTALL	src/Makefile	/^PRE_INSTALL = :$/;"	m
+PRE_UNINSTALL	Makefile	/^PRE_UNINSTALL = :$/;"	m
+PRE_UNINSTALL	src/Makefile	/^PRE_UNINSTALL = :$/;"	m
+PURPLE_PLUGINS	src/hotkeys.c	33;"	d	file:
+RANLIB	Makefile	/^RANLIB = ranlib$/;"	m
+RANLIB	src/Makefile	/^RANLIB = ranlib$/;"	m
+RECURSIVE_TARGETS	Makefile	/^RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \\$/;"	m
+SET_MAKE	Makefile	/^SET_MAKE = $/;"	m
+SET_MAKE	src/Makefile	/^SET_MAKE = $/;"	m
+SHELL	Makefile	/^SHELL = \/bin\/sh$/;"	m
+SHELL	po/Makefile	/^SHELL = \/bin\/sh$/;"	m
+SHELL	src/Makefile	/^SHELL = \/bin\/sh$/;"	m
+SOURCES	Makefile	/^SOURCES =$/;"	m
+SOURCES	po/Makefile	/^SOURCES = $/;"	m
+SOURCES	src/Makefile	/^SOURCES = $(hotkeys_la_SOURCES)$/;"	m
+STDC_HEADERS	hotkeys-config.h	74;"	d
+STRIP	Makefile	/^STRIP = strip$/;"	m
+STRIP	src/Makefile	/^STRIP = strip$/;"	m
+STRIPPROG	Makefile	/^	    echo "INSTALL_PROGRAM_ENV=STRIPPROG='$(STRIP)'"` install$/;"	m
+STRIPPROG	src/Makefile	/^	    echo "INSTALL_PROGRAM_ENV=STRIPPROG='$(STRIP)'"` install$/;"	m
+SUBDIRS	Makefile	/^SUBDIRS = src po$/;"	m
+ShiftMask	src/hotkeys.c	51;"	d	file:
+USE_NLS	Makefile	/^USE_NLS = yes$/;"	m
+USE_NLS	src/Makefile	/^USE_NLS = yes$/;"	m
+VERSION	Makefile	/^VERSION = 0.2.3$/;"	m
+VERSION	hotkeys-config.h	77;"	d
+VERSION	po/Makefile	/^VERSION = 0.2.3$/;"	m
+VERSION	src/Makefile	/^VERSION = 0.2.3$/;"	m
+VERSION_EPOCH	hotkeys-config.h	80;"	d
+VERSION_MAJOR	hotkeys-config.h	83;"	d
+VERSION_MINOR	hotkeys-config.h	86;"	d
+WITH_WIN32_FALSE	Makefile	/^WITH_WIN32_FALSE = $/;"	m
+WITH_WIN32_FALSE	src/Makefile	/^WITH_WIN32_FALSE = $/;"	m
+WITH_WIN32_TRUE	Makefile	/^WITH_WIN32_TRUE = #$/;"	m
+WITH_WIN32_TRUE	src/Makefile	/^WITH_WIN32_TRUE = #$/;"	m
+WITH_X11_FALSE	Makefile	/^WITH_X11_FALSE = #$/;"	m
+WITH_X11_FALSE	src/Makefile	/^WITH_X11_FALSE = #$/;"	m
+WITH_X11_TRUE	Makefile	/^WITH_X11_TRUE = $/;"	m
+WITH_X11_TRUE	src/Makefile	/^WITH_X11_TRUE = $/;"	m
+WndProc	src/hotkeys_win32.c	/^static LRESULT CALLBACK WndProc(HWND hwnd,$/;"	f	file:
+XGETTEXT	Makefile	/^XGETTEXT = \/usr\/bin\/xgettext$/;"	m
+XGETTEXT	po/Makefile	/^XGETTEXT = \/usr\/bin\/xgettext$/;"	m
+XGETTEXT	src/Makefile	/^XGETTEXT = \/usr\/bin\/xgettext$/;"	m
+_	src/hotkeys.h	32;"	d
+_	src/hotkeys.h	41;"	d
+_HOTKEYS_H_	src/hotkeys.h	23;"	d
+_free_keys	src/hotkeys_win32.c	/^void _free_keys(GdkDisplay* gdisplay,$/;"	f
+_free_keys	src/hotkeys_x11.c	/^_free_keys(GdkDisplay* gdisplay, GdkWindow* groot, HotkeyEntry* hotkeys, guint num_hotkeys)$/;"	f
+ac_ct_CC	Makefile	/^ac_ct_CC = gcc$/;"	m
+ac_ct_CC	src/Makefile	/^ac_ct_CC = gcc$/;"	m
+ac_ct_CXX	Makefile	/^ac_ct_CXX = g++$/;"	m
+ac_ct_CXX	src/Makefile	/^ac_ct_CXX = g++$/;"	m
+ac_ct_F77	Makefile	/^ac_ct_F77 = $/;"	m
+ac_ct_F77	src/Makefile	/^ac_ct_F77 = $/;"	m
+am__CONFIG_DISTCLEAN_FILES	Makefile	/^am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \\$/;"	m
+am__DEPENDENCIES_1	src/Makefile	/^am__DEPENDENCIES_1 =$/;"	m
+am__aclocal_m4_deps	Makefile	/^am__aclocal_m4_deps = $(top_srcdir)\/configure.ac$/;"	m
+am__aclocal_m4_deps	src/Makefile	/^am__aclocal_m4_deps = $(top_srcdir)\/configure.ac$/;"	m
+am__cd	Makefile	/^am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd$/;"	m
+am__cd	src/Makefile	/^am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd$/;"	m
+am__configure_deps	Makefile	/^am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \\$/;"	m
+am__configure_deps	src/Makefile	/^am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \\$/;"	m
+am__depfiles_maybe	src/Makefile	/^am__depfiles_maybe = depfiles$/;"	m
+am__fastdepCC_FALSE	Makefile	/^am__fastdepCC_FALSE = #$/;"	m
+am__fastdepCC_FALSE	src/Makefile	/^am__fastdepCC_FALSE = #$/;"	m
+am__fastdepCC_TRUE	Makefile	/^am__fastdepCC_TRUE = $/;"	m
+am__fastdepCC_TRUE	src/Makefile	/^am__fastdepCC_TRUE = $/;"	m
+am__fastdepCXX_FALSE	Makefile	/^am__fastdepCXX_FALSE = #$/;"	m
+am__fastdepCXX_FALSE	src/Makefile	/^am__fastdepCXX_FALSE = #$/;"	m
+am__fastdepCXX_TRUE	Makefile	/^am__fastdepCXX_TRUE = $/;"	m
+am__fastdepCXX_TRUE	src/Makefile	/^am__fastdepCXX_TRUE = $/;"	m
+am__hotkeys_la_SOURCES_DIST	src/Makefile	/^am__hotkeys_la_SOURCES_DIST = hotkeys.h hotkeys.c hotkeys_win32.c \\$/;"	m
+am__include	Makefile	/^am__include = include$/;"	m
+am__include	src/Makefile	/^am__include = include$/;"	m
+am__installdirs	src/Makefile	/^am__installdirs = "$(DESTDIR)$(plugindir)"$/;"	m
+am__leading_dot	Makefile	/^am__leading_dot = .$/;"	m
+am__leading_dot	src/Makefile	/^am__leading_dot = .$/;"	m
+am__objects_1	src/Makefile	/^am__objects_1 = hotkeys.lo$/;"	m
+am__quote	Makefile	/^am__quote = $/;"	m
+am__quote	src/Makefile	/^am__quote = $/;"	m
+am__remove_distdir	Makefile	/^am__remove_distdir = \\$/;"	m
+am__strip_dir	src/Makefile	/^am__strip_dir = `echo $$p | sed -e 's|^.*\/||'`;$/;"	m
+am__tar	Makefile	/^am__tar = ${AMTAR} chof - "$$tardir"$/;"	m
+am__tar	src/Makefile	/^am__tar = ${AMTAR} chof - "$$tardir"$/;"	m
+am__untar	Makefile	/^am__untar = ${AMTAR} xf -$/;"	m
+am__untar	src/Makefile	/^am__untar = ${AMTAR} xf -$/;"	m
+am__vpath_adj	src/Makefile	/^am__vpath_adj = case $$p in \\$/;"	m
+am__vpath_adj_setup	src/Makefile	/^am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;$/;"	m
+am_hotkeys_la_OBJECTS	src/Makefile	/^am_hotkeys_la_OBJECTS =  \\$/;"	m
+as_func_failure	configure	/^as_func_failure () {$/;"	f
+as_func_ret_failure	configure	/^as_func_ret_failure () {$/;"	f
+as_func_ret_success	configure	/^as_func_ret_success () {$/;"	f
+as_func_success	configure	/^as_func_success () {$/;"	f
+bindir	Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
+bindir	src/Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
+build	Makefile	/^build = i686-pc-linux-gnu$/;"	m
+build	src/Makefile	/^build = i686-pc-linux-gnu$/;"	m
+build_alias	Makefile	/^build_alias = $/;"	m
+build_alias	src/Makefile	/^build_alias = $/;"	m
+build_cpu	Makefile	/^build_cpu = i686$/;"	m
+build_cpu	src/Makefile	/^build_cpu = i686$/;"	m
+build_os	Makefile	/^build_os = linux-gnu$/;"	m
+build_os	src/Makefile	/^build_os = linux-gnu$/;"	m
+build_triplet	Makefile	/^build_triplet = i686-pc-linux-gnu$/;"	m
+build_triplet	src/Makefile	/^build_triplet = i686-pc-linux-gnu$/;"	m
+build_vendor	Makefile	/^build_vendor = pc$/;"	m
+build_vendor	src/Makefile	/^build_vendor = pc$/;"	m
+cat	po/Makefile	/^	  cat=`basename $$cat`; \\$/;"	m
+catalogs	po/Makefile	/^	catalogs='$(CATALOGS)'; \\$/;"	m
+code	src/hotkeys.h	/^    KeyCode code;$/;"	m
+code_	src/hotkeys.h	/^    KeyCode code_;$/;"	m
+datadir	Makefile	/^datadir = ${datarootdir}$/;"	m
+datadir	po/Makefile	/^datadir = ${prefix}\/share$/;"	m
+datadir	src/Makefile	/^datadir = ${datarootdir}$/;"	m
+datarootdir	Makefile	/^datarootdir = ${prefix}\/share$/;"	m
+datarootdir	src/Makefile	/^datarootdir = ${prefix}\/share$/;"	m
+dc_destdir	Makefile	/^	  && dc_destdir="$${TMPDIR-\/tmp}\/am-dc-$$$$\/" \\$/;"	m
+dc_install_base	Makefile	/^	dc_install_base=`$(am__cd) $(distdir)\/_inst && pwd | sed -e 's,^[^:\\\\\/]:[\\\\\/],\/,'` \\$/;"	m
+depcomp	src/Makefile	/^depcomp = $(SHELL) $(top_srcdir)\/depcomp$/;"	m
+depmode	Makefile	/^CCDEPMODE = depmode=gcc3$/;"	m
+depmode	Makefile	/^CXXDEPMODE = depmode=gcc3$/;"	m
+depmode	src/Makefile	/^CCDEPMODE = depmode=gcc3$/;"	m
+depmode	src/Makefile	/^CXXDEPMODE = depmode=gcc3$/;"	m
+destdir	po/Makefile	/^	    *)     destdir=$(localedir);; \\$/;"	m
+destdir	po/Makefile	/^	    *.gmo) destdir=$(gnulocaledir);; \\$/;"	m
+dir	Makefile	/^	    dir="\/$$dir"; \\$/;"	m
+dir	Makefile	/^	    dir=''; \\$/;"	m
+dir	Makefile	/^	  dir=`echo "$$file" | sed -e 's,\/[^\/]*$$,,'`; \\$/;"	m
+dir	po/Makefile	/^	  dir=$(DESTDIR)$$destdir\/$$lang\/LC_MESSAGES; \\$/;"	m
+dir	src/Makefile	/^	    dir="\/$$dir"; \\$/;"	m
+dir	src/Makefile	/^	    dir=''; \\$/;"	m
+dir	src/Makefile	/^	  dir="`echo $$p | sed -e 's|\/[^\/]*$$||'`"; \\$/;"	m
+dir	src/Makefile	/^	  dir=`echo "$$file" | sed -e 's,\/[^\/]*$$,,'`; \\$/;"	m
+dir	src/Makefile	/^	  test "$$dir" != "$$p" || dir=.; \\$/;"	m
+distcleancheck_listfiles	Makefile	/^distcleancheck_listfiles = find . -type f -print$/;"	m
+distdir	Makefile	/^	        distdir="$$distdir\/$$subdir" \\$/;"	m
+distdir	Makefile	/^	    distdir=`$(am__cd) $(distdir) && pwd`; \\$/;"	m
+distdir	Makefile	/^distdir = $(PACKAGE)-$(VERSION)$/;"	m
+distdir	po/Makefile	/^distdir = ..\/$(GETTEXT_PACKAGE)-$(VERSION)\/$(subdir)$/;"	m
+dists	po/Makefile	/^	dists="$(DISTFILES)"; \\$/;"	m
+distuninstallcheck_dir	Makefile	/^	            distuninstallcheck_dir="$$dc_destdir" distuninstallcheck; \\$/;"	m
+distuninstallcheck_dir	Makefile	/^	  && $(MAKE) $(AM_MAKEFLAGS) distuninstallcheck_dir="$$dc_install_base" \\$/;"	m
+distuninstallcheck_listfiles	Makefile	/^distuninstallcheck_listfiles = find . -type f -print$/;"	m
+docdir	Makefile	/^docdir = ${datarootdir}\/doc\/${PACKAGE_TARNAME}$/;"	m
+docdir	src/Makefile	/^docdir = ${datarootdir}\/doc\/${PACKAGE_TARNAME}$/;"	m
+dot_seen	Makefile	/^	    dot_seen=yes; \\$/;"	m
+dot_seen	Makefile	/^	dot_seen=no; \\$/;"	m
+dummy_win	src/hotkeys_win32.c	/^static HWND dummy_win = NULL;$/;"	v	file:
+dvidir	Makefile	/^dvidir = ${docdir}$/;"	m
+dvidir	src/Makefile	/^dvidir = ${docdir}$/;"	m
+empty_fix	Makefile	/^	  empty_fix=.; \\$/;"	m
+empty_fix	Makefile	/^	  empty_fix=; \\$/;"	m
+enable	src/hotkeys.h	/^    gboolean enable;$/;"	m
+event_filter	src/hotkeys.c	/^event_filter(gpointer event_data)$/;"	f	file:
+exec_prefix	Makefile	/^exec_prefix = ${prefix}$/;"	m
+exec_prefix	po/Makefile	/^exec_prefix = ${prefix}$/;"	m
+exec_prefix	src/Makefile	/^exec_prefix = ${prefix}$/;"	m
+f	src/Makefile	/^	    f=$(am__strip_dir) \\$/;"	m
+f	src/Makefile	/^    $(srcdir)\/*) f=`echo "$$p" | sed "s|^$$srcdirstrip\/||"`;; \\$/;"	m
+f	src/Makefile	/^    *) f=$$p;; \\$/;"	m
+failcom	Makefile	/^	    *k*) failcom='fail=yes';; \\$/;"	m
+file	Makefile	/^	    $(srcdir)\/*) file=`echo "$$file" | sed "s|^$$srcdirstrip\/||"`;; \\$/;"	m
+file	Makefile	/^	    $(top_srcdir)\/*) file=`echo "$$file" | sed "s|^$$topsrcdirstrip\/|$(top_builddir)\/|"`;; \\$/;"	m
+file	po/Makefile	/^	file=$(srcdir)\/`echo $* | sed 's,.*\/,,'`.gmo \\$/;"	m
+file	src/Makefile	/^	    $(srcdir)\/*) file=`echo "$$file" | sed "s|^$$srcdirstrip\/||"`;; \\$/;"	m
+file	src/Makefile	/^	    $(top_srcdir)\/*) file=`echo "$$file" | sed "s|^$$topsrcdirstrip\/|$(top_builddir)\/|"`;; \\$/;"	m
+filter	src/hotkeys_win32.c	/^static FilterFunc filter = NULL;$/;"	v	file:
+find_hotkey_atom	src/hotkeys_win32.c	/^static ATOM find_hotkey_atom(HotkeyEntry* key)$/;"	f	file:
+free_key	src/hotkeys_win32.c	/^gboolean free_key(GdkDisplay* gdisplay,$/;"	f
+free_key	src/hotkeys_x11.c	/^free_key(GdkDisplay* gdisplay, GdkWindow* groot, HotkeyEntry* key)$/;"	f
+free_keys	src/hotkeys.c	/^free_keys(GtkWidget* widget)$/;"	f	file:
+func_extract_an_archive	libtool	/^func_extract_an_archive ()$/;"	f
+func_extract_an_archive	ltmain.sh	/^func_extract_an_archive ()$/;"	f
+func_extract_archives	libtool	/^func_extract_archives ()$/;"	f
+func_extract_archives	ltmain.sh	/^func_extract_archives ()$/;"	f
+func_infer_tag	libtool	/^func_infer_tag ()$/;"	f
+func_infer_tag	ltmain.sh	/^func_infer_tag ()$/;"	f
+func_mktempdir	libtool	/^func_mktempdir ()$/;"	f
+func_mktempdir	ltmain.sh	/^func_mktempdir ()$/;"	f
+func_win32_libid	libtool	/^func_win32_libid ()$/;"	f
+func_win32_libid	ltmain.sh	/^func_win32_libid ()$/;"	f
+gdk_filter	src/hotkeys_x11.c	/^gdk_filter(GdkXEvent *xevent,$/;"	f	file:
+gen_keystr	src/hotkeys.c	/^gen_keystr(HotkeyEntry* key, GtkWidget* widget)$/;"	f	file:
+get_dummy_win	src/hotkeys_win32.c	/^static HWND get_dummy_win()$/;"	f	file:
+get_pending_list	src/hotkeys.c	/^get_pending_list(guint max)$/;"	f	file:
+gettextsrcdir	po/Makefile	/^gettextsrcdir = $(datadir)\/glib-2.0\/gettext\/po$/;"	m
+gnulocaledir	po/Makefile	/^gnulocaledir = $(datadir)\/locale$/;"	m
+grab_key	src/hotkeys_win32.c	/^gboolean grab_key(GdkDisplay* gdisplay,$/;"	f
+grab_key	src/hotkeys_x11.c	/^grab_key(GdkDisplay* gdisplay, GdkWindow* groot, HotkeyEntry* key)$/;"	f
+grab_keys	src/hotkeys.c	/^grab_keys(GtkWidget* widget)$/;"	f	file:
+hacky_active_window	src/hotkeys_win32.c	/^void hacky_active_window(GtkWidget *window)$/;"	f
+hacky_active_window	src/hotkeys_x11.c	/^hacky_active_window(GtkWidget *window)$/;"	f
+handle	src/hotkeys.c	/^PurplePlugin *handle = NULL;$/;"	v
+here	Makefile	/^	here=`$(am__cd) $(top_builddir) && pwd` \\$/;"	m
+here	Makefile	/^	here=`pwd`; \\$/;"	m
+here	src/Makefile	/^	here=`$(am__cd) $(top_builddir) && pwd` \\$/;"	m
+here	src/Makefile	/^	here=`pwd`; \\$/;"	m
+host	Makefile	/^host = i686-pc-linux-gnu$/;"	m
+host	src/Makefile	/^host = i686-pc-linux-gnu$/;"	m
+host_alias	Makefile	/^host_alias = $/;"	m
+host_alias	src/Makefile	/^host_alias = $/;"	m
+host_cpu	Makefile	/^host_cpu = i686$/;"	m
+host_cpu	src/Makefile	/^host_cpu = i686$/;"	m
+host_os	Makefile	/^host_os = linux-gnu$/;"	m
+host_os	src/Makefile	/^host_os = linux-gnu$/;"	m
+host_triplet	Makefile	/^host_triplet = i686-pc-linux-gnu$/;"	m
+host_triplet	src/Makefile	/^host_triplet = i686-pc-linux-gnu$/;"	m
+host_vendor	Makefile	/^host_vendor = pc$/;"	m
+host_vendor	src/Makefile	/^host_vendor = pc$/;"	m
+hotkey_set_bool	src/hotkeys.c	/^hotkey_set_bool(GtkWidget *widget, HotkeyEntry* key)$/;"	f	file:
+hotkeys	src/hotkeys.c	/^static HotkeyEntry hotkeys[] =$/;"	v	file:
+hotkeys_la_DEPENDENCIES	src/Makefile	/^hotkeys_la_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \\$/;"	m
+hotkeys_la_LDFLAGS	src/Makefile	/^hotkeys_la_LDFLAGS = -module -avoid-version $(am__append_1)$/;"	m
+hotkeys_la_LIBADD	src/Makefile	/^hotkeys_la_LIBADD = $(PIDGIN_LIBS) $(GTK_LIBS) $(am__append_2)$/;"	m
+hotkeys_la_OBJECTS	src/Makefile	/^hotkeys_la_OBJECTS = $(am_hotkeys_la_OBJECTS)$/;"	m
+hotkeys_la_SOURCES	src/Makefile	/^hotkeys_la_SOURCES = $(hotkeys_la_common_sources) hotkeys_x11.c$/;"	m
+hotkeys_la_common_sources	src/Makefile	/^hotkeys_la_common_sources = \\$/;"	m
+htmldir	Makefile	/^htmldir = ${docdir}$/;"	m
+htmldir	src/Makefile	/^htmldir = ${docdir}$/;"	m
+include_option	Makefile	/^	  include_option=--etags-include; \\$/;"	m
+include_option	Makefile	/^	  include_option=--include; \\$/;"	m
+includedir	Makefile	/^includedir = ${prefix}\/include$/;"	m
+includedir	src/Makefile	/^includedir = ${prefix}\/include$/;"	m
+info	src/hotkeys.c	/^static PurplePluginInfo info =$/;"	v	file:
+infodir	Makefile	/^infodir = ${datarootdir}\/info$/;"	m
+infodir	src/Makefile	/^infodir = ${datarootdir}\/info$/;"	m
+install_sh	Makefile	/^install_sh = \/home\/sumitk\/osource\/pidgin-hotkeys-0.2.3\/install-sh$/;"	m
+install_sh	src/Makefile	/^install_sh = \/home\/sumitk\/osource\/pidgin-hotkeys-0.2.3\/install-sh$/;"	m
+install_sh_DATA	Makefile	/^install_sh_DATA = $(install_sh) -c -m 644$/;"	m
+install_sh_DATA	src/Makefile	/^install_sh_DATA = $(install_sh) -c -m 644$/;"	m
+install_sh_PROGRAM	Makefile	/^	  install_sh_PROGRAM="$(INSTALL_STRIP_PROGRAM)" INSTALL_STRIP_FLAG=-s \\$/;"	m
+install_sh_PROGRAM	Makefile	/^install_sh_PROGRAM = $(install_sh) -c$/;"	m
+install_sh_PROGRAM	src/Makefile	/^	  install_sh_PROGRAM="$(INSTALL_STRIP_PROGRAM)" INSTALL_STRIP_FLAG=-s \\$/;"	m
+install_sh_PROGRAM	src/Makefile	/^install_sh_PROGRAM = $(install_sh) -c$/;"	m
+install_sh_SCRIPT	Makefile	/^install_sh_SCRIPT = $(install_sh) -c$/;"	m
+install_sh_SCRIPT	src/Makefile	/^install_sh_SCRIPT = $(install_sh) -c$/;"	m
+keycode_to_string	src/hotkeys_win32.c	/^gchar* keycode_to_string(KeyCode keycode,$/;"	f
+keycode_to_string	src/hotkeys_x11.c	/^keycode_to_string(KeyCode keycode, GtkWidget* widget)$/;"	f
+lang	po/Makefile	/^	  lang=`echo $$cat | sed 's\/\\$(CATOBJEXT)$$\/\/'`; \\$/;"	m
+libdir	Makefile	/^libdir = ${exec_prefix}\/lib$/;"	m
+libdir	po/Makefile	/^libdir = ${exec_prefix}\/lib$/;"	m
+libdir	src/Makefile	/^libdir = ${exec_prefix}\/lib$/;"	m
+libexecdir	Makefile	/^libexecdir = ${exec_prefix}\/libexec$/;"	m
+libexecdir	src/Makefile	/^libexecdir = ${exec_prefix}\/libexec$/;"	m
+list	Makefile	/^	  *) list='$(SUBDIRS)' ;; \\$/;"	m
+list	Makefile	/^	  distclean-* | maintainer-clean-*) list='$(DIST_SUBDIRS)' ;; \\$/;"	m
+list	Makefile	/^	  list='$(DIST_ARCHIVES)'; for i in $$list; do echo $$i; done) | \\$/;"	m
+list	Makefile	/^	list='$(DISTFILES)'; for file in $$list; do \\$/;"	m
+list	Makefile	/^	list='$(DIST_SUBDIRS)'; for subdir in $$list; do \\$/;"	m
+list	Makefile	/^	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \\$/;"	m
+list	Makefile	/^	list='$(SOURCES) $(HEADERS) hotkeys-config.h.in $(LISP) $(TAGS_FILES)'; \\$/;"	m
+list	Makefile	/^	list='$(SUBDIRS)'; for subdir in $$list; do \\$/;"	m
+list	src/Makefile	/^	@set -x; list='$(plugin_LTLIBRARIES)'; for p in $$list; do \\$/;"	m
+list	src/Makefile	/^	list='$(DISTFILES)'; for file in $$list; do \\$/;"	m
+list	src/Makefile	/^	list='$(SOURCES) $(HEADERS)  $(LISP) $(TAGS_FILES)'; \\$/;"	m
+list	src/Makefile	/^	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \\$/;"	m
+local_target	Makefile	/^	    local_target="$$target"; \\$/;"	m
+local_target	Makefile	/^	    local_target="$$target-am"; \\$/;"	m
+localedir	Makefile	/^localedir = ${datarootdir}\/locale$/;"	m
+localedir	po/Makefile	/^localedir = $(libdir)\/locale$/;"	m
+localedir	src/Makefile	/^localedir = ${datarootdir}\/locale$/;"	m
+localstatedir	Makefile	/^localstatedir = ${prefix}\/var$/;"	m
+localstatedir	src/Makefile	/^localstatedir = ${prefix}\/var$/;"	m
+main	config.guess	/^		main()$/;"	f
+main	config.guess	/^	main ()$/;"	f
+main	config.guess	/^main ()$/;"	f
+make_hotkey_atom	src/hotkeys_win32.c	/^static ATOM make_hotkey_atom(HotkeyEntry* key)$/;"	f	file:
+make_hotkey_atom_name	src/hotkeys_win32.c	/^static gchar *make_hotkey_atom_name(HotkeyEntry* key)$/;"	f	file:
+mandir	Makefile	/^mandir = ${datarootdir}\/man$/;"	m
+mandir	src/Makefile	/^mandir = ${datarootdir}\/man$/;"	m
+mkdir_p	Makefile	/^mkdir_p = mkdir -p --$/;"	m
+mkdir_p	src/Makefile	/^mkdir_p = mkdir -p --$/;"	m
+mkinstalldirs	Makefile	/^mkinstalldirs = $(SHELL) $(top_srcdir)\/mkinstalldirs$/;"	m
+mkinstalldirs	src/Makefile	/^mkinstalldirs = $(SHELL) $(top_srcdir)\/mkinstalldirs$/;"	m
+mod	src/hotkeys.h	/^    gint mod;$/;"	m
+mod_	src/hotkeys.h	/^    gint mod_;$/;"	m
+name	src/hotkeys.h	/^    const gchar* name;$/;"	m
+ngettext	src/hotkeys.h	42;"	d
+num_hotkeys	src/hotkeys.c	/^static const gint num_hotkeys = G_N_ELEMENTS(hotkeys);$/;"	v	file:
+oldincludedir	Makefile	/^oldincludedir = \/usr\/include$/;"	m
+oldincludedir	src/Makefile	/^oldincludedir = \/usr\/include$/;"	m
+on_entry_focus_out_event	src/hotkeys.c	/^on_entry_focus_out_event(GtkWidget * widget,$/;"	f	file:
+on_entry_key_press_event	src/hotkeys.c	/^on_entry_key_press_event(GtkWidget * widget,$/;"	f	file:
+on_entry_key_release_event	src/hotkeys.c	/^on_entry_key_release_event(GtkWidget * widget,$/;"	f	file:
+p	src/Makefile	/^	  p=$(am__strip_dir) \\$/;"	m
+parse_keystr	src/hotkeys_win32.c	/^gboolean parse_keystr(const gchar* keystr,$/;"	f
+parse_keystr	src/hotkeys_x11.c	/^parse_keystr(const gchar* keystr, GtkWidget* widget, HotkeyEntry* key)$/;"	f
+pdfdir	Makefile	/^pdfdir = ${docdir}$/;"	m
+pdfdir	src/Makefile	/^pdfdir = ${docdir}$/;"	m
+pkgdatadir	Makefile	/^pkgdatadir = $(datadir)\/pidgin-hotkeys$/;"	m
+pkgdatadir	src/Makefile	/^pkgdatadir = $(datadir)\/pidgin-hotkeys$/;"	m
+pkgincludedir	Makefile	/^pkgincludedir = $(includedir)\/pidgin-hotkeys$/;"	m
+pkgincludedir	src/Makefile	/^pkgincludedir = $(includedir)\/pidgin-hotkeys$/;"	m
+pkglibdir	Makefile	/^pkglibdir = $(libdir)\/pidgin-hotkeys$/;"	m
+pkglibdir	src/Makefile	/^pkglibdir = $(libdir)\/pidgin-hotkeys$/;"	m
+pluginLTLIBRARIES_INSTALL	src/Makefile	/^pluginLTLIBRARIES_INSTALL = $(INSTALL)$/;"	m
+plugin_LTLIBRARIES	src/Makefile	/^plugin_LTLIBRARIES = hotkeys.la$/;"	m
+plugin_config_frame	src/hotkeys.c	/^plugin_config_frame(PurplePlugin *plugin)$/;"	f	file:
+plugin_init	src/hotkeys.c	/^plugin_init(PurplePlugin *plugin)$/;"	f	file:
+plugin_load	src/hotkeys.c	/^plugin_load(PurplePlugin *plugin)$/;"	f	file:
+plugin_unload	src/hotkeys.c	/^plugin_unload(PurplePlugin *plugin)$/;"	f	file:
+plugindir	src/Makefile	/^plugindir = $(libdir)\/pidgin$/;"	m
+posrcprefix	po/Makefile	/^	    posrcprefix="..\/"; \\$/;"	m
+posrcprefix	po/Makefile	/^	    posrcprefix='$(top_srcdir)\/'; \\$/;"	m
+pref	src/hotkeys.h	/^    const gchar* pref;$/;"	m
+prefix	Makefile	/^prefix = \/usr\/local$/;"	m
+prefix	po/Makefile	/^prefix = \/usr\/local$/;"	m
+prefix	src/Makefile	/^prefix = \/usr\/local$/;"	m
+program_transform_name	Makefile	/^program_transform_name = s,x,x,$/;"	m
+program_transform_name	src/Makefile	/^program_transform_name = s,x,x,$/;"	m
+prototypes	configure	/^   function prototypes and stuff, but not '\\xHH' hex character constants.$/;"	f
+psdir	Makefile	/^psdir = ${docdir}$/;"	m
+psdir	src/Makefile	/^psdir = ${docdir}$/;"	m
+real_event_filter	src/hotkeys_win32.c	/^gint real_event_filter(gpointer event_data,$/;"	f
+real_event_filter	src/hotkeys_x11.c	/^real_event_filter(gpointer event_data,$/;"	f
+reconfig_blist	src/hotkeys.c	/^reconfig_blist(gint action)$/;"	f	file:
+reconfig_blist_cb	src/hotkeys.c	/^reconfig_blist_cb(PurpleBuddyList* blist, void *data)$/;"	f	file:
+release_filter	src/hotkeys_win32.c	/^void release_filter(GdkWindow *root, FilterFunc filter_func)$/;"	f
+release_filter	src/hotkeys_x11.c	/^void release_filter(GdkWindow *root, FilterFunc filter_func)$/;"	f
+rev	Makefile	/^	    rev="$$subdir $$rev"; \\$/;"	m
+rev	Makefile	/^	rev="$$rev ."; \\$/;"	m
+rev	Makefile	/^	rev=''; for subdir in $$list; do \\$/;"	m
+sbindir	Makefile	/^sbindir = ${exec_prefix}\/sbin$/;"	m
+sbindir	src/Makefile	/^sbindir = ${exec_prefix}\/sbin$/;"	m
+setup_filter	src/hotkeys_win32.c	/^setup_filter(GdkWindow *root, FilterFunc filter_func)$/;"	f
+setup_filter	src/hotkeys_x11.c	/^setup_filter(GdkWindow *root, FilterFunc filter_func)$/;"	f
+sharedstatedir	Makefile	/^sharedstatedir = ${prefix}\/com$/;"	m
+sharedstatedir	src/Makefile	/^sharedstatedir = ${prefix}\/com$/;"	m
+srcdir	Makefile	/^srcdir = .$/;"	m
+srcdir	po/Makefile	/^srcdir = .$/;"	m
+srcdir	src/Makefile	/^srcdir = .$/;"	m
+srcdirstrip	src/Makefile	/^am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;$/;"	m
+subdir	Makefile	/^subdir = .$/;"	m
+subdir	po/Makefile	/^subdir = po$/;"	m
+subdir	src/Makefile	/^subdir = src$/;"	m
+sysconfdir	Makefile	/^sysconfdir = ${prefix}\/etc$/;"	m
+sysconfdir	src/Makefile	/^sysconfdir = ${prefix}\/etc$/;"	m
+tags	Makefile	/^	      tags="$$tags $$include_option=$$here\/$$subdir\/TAGS"; \\$/;"	m
+tags	Makefile	/^	tags=; \\$/;"	m
+tags	src/Makefile	/^	tags=; \\$/;"	m
+tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | GZIP=$(GZIP_ENV) gzip -c >$(distdir).tar.gz$/;"	m
+tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | bzip2 -9 -c >$(distdir).tar.bz2$/;"	m
+tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | compress -c >$(distdir).tar.Z$/;"	m
+target	Makefile	/^	target=`echo $@ | sed s\/-recursive\/\/`; \\$/;"	m
+target	Makefile	/^target = i686-pc-linux-gnu$/;"	m
+target	src/Makefile	/^target = i686-pc-linux-gnu$/;"	m
+target_alias	Makefile	/^target_alias = $/;"	m
+target_alias	src/Makefile	/^target_alias = $/;"	m
+target_cpu	Makefile	/^target_cpu = i686$/;"	m
+target_cpu	src/Makefile	/^target_cpu = i686$/;"	m
+target_os	Makefile	/^target_os = linux-gnu$/;"	m
+target_os	src/Makefile	/^target_os = linux-gnu$/;"	m
+target_triplet	Makefile	/^target_triplet = i686-pc-linux-gnu$/;"	m
+target_triplet	src/Makefile	/^target_triplet = i686-pc-linux-gnu$/;"	m
+target_vendor	Makefile	/^target_vendor = pc$/;"	m
+target_vendor	src/Makefile	/^target_vendor = pc$/;"	m
+tmpdir	po/Makefile	/^	tmpdir=`pwd`; \\$/;"	m
+top_builddir	Makefile	/^top_builddir = .$/;"	m
+top_builddir	src/Makefile	/^top_builddir = ..$/;"	m
+top_distdir	Makefile	/^	        top_distdir="$$top_distdir" \\$/;"	m
+top_distdir	Makefile	/^	    top_distdir=`$(am__cd) $(top_distdir) && pwd`; \\$/;"	m
+top_distdir	Makefile	/^top_distdir = $(distdir)$/;"	m
+top_srcdir	Makefile	/^top_srcdir = .$/;"	m
+top_srcdir	po/Makefile	/^top_srcdir = ..$/;"	m
+top_srcdir	src/Makefile	/^top_srcdir = ..$/;"	m
+topsrcdirstrip	Makefile	/^	topsrcdirstrip=`echo "$(top_srcdir)" | sed 's|.|.|g'`; \\$/;"	m
+topsrcdirstrip	src/Makefile	/^	topsrcdirstrip=`echo "$(top_srcdir)" | sed 's|.|.|g'`; \\$/;"	m
+transform	Makefile	/^transform = $(program_transform_name)$/;"	m
+transform	src/Makefile	/^transform = $(program_transform_name)$/;"	m
+ui_info	src/hotkeys.c	/^static PidginPluginUiInfo ui_info =$/;"	v	file:
+unique	Makefile	/^	  test -n "$$unique" || unique=$$empty_fix; \\$/;"	m
+unique	Makefile	/^	unique=`for i in $$list; do \\$/;"	m
+unique	src/Makefile	/^	  test -n "$$unique" || unique=$$empty_fix; \\$/;"	m
+unique	src/Makefile	/^	unique=`for i in $$list; do \\$/;"	m
+use_pref	src/hotkeys.h	/^    const gchar* use_pref;$/;"	m

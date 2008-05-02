@@ -1,0 +1,617 @@
+/*
+ * Hotkeys plugin for Pidgin
+ *
+ * Copyright (C) 2004 Ivan Wong <email@ivanwong.info>
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+ * 02111-1307, USA.
+ */
+
+#include <glib.h>
+#ifndef G_GNUC_NULL_TERMINATED
+#  if __GNUC__ >= 4
+#    define G_GNUC_NULL_TERMINATED __attribute__((__sentinel__))
+#  else
+#    define G_GNUC_NULL_TERMINATED
+#  endif /* __GNUC__ >= 4 */
+#endif /* G_GNUC_NULL_TERMINATED */
+
+#include <gdk/gdkkeysyms.h>
+
+#define PURPLE_PLUGINS
+#include <libpurple/version.h>
+#include <libpurple/savedstatuses.h>
+#include <libpurple/debug.h>
+#include <pidgin/gtkblist.h>
+#include <pidgin/gtkplugin.h>
+#include <pidgin/gtkutils.h>
+#include <pidgin/gtkdialogs.h>
+#include <pidgin/gtkprefs.h>
+#include <pidgin/gtkaccount.h>
+
+#ifdef GDK_WINDOWING_X11
+#include <X11/keysym.h>
+#endif
+
+#ifdef GDK_WINDOWING_WIN32
+#include <windows.h>
+#include <imm.h>
+#define ShiftMask MOD_SHIFT
+#define ControlMask MOD_CONTROL
+#define Mod1Mask MOD_ALT
+#define Mod4Mask MOD_WIN
+#endif
+
+#include "hotkeys.h"
+#ifdef HAVE_STRING_H
+#include <string.h>
+#endif
+
+#define PREF_ROOT "/plugins/gtk/hotkeys"
+#define PREF_PATH PREF_ROOT "/"
+
+/* globals */
+
+PurplePlugin *handle = NULL;
+
+static gchar* gen_keystr(HotkeyEntry* key, GtkWidget* widget);
+static void grab_keys(GtkWidget* widget);
+static void free_keys(GtkWidget* widget);
+static void hotkey_set_bool(GtkWidget *widget, HotkeyEntry* key);
+static gboolean on_entry_key_press_event(GtkWidget * widget,
+                                         GdkEventKey * event,
+                                         gpointer user_data);
+static gboolean on_entry_key_release_event(GtkWidget * widget,
+                                           GdkEventKey * event,
+                                           gpointer user_data);
+static gboolean on_entry_focus_out_event(GtkWidget * widget,
+                                         GdkEventFocus * event,
+                                         gpointer user_data);
+static void reconfig_blist_cb(PurpleBuddyList *list, void *data);
+static void reconfig_blist(gint action);
+
+static HotkeyEntry hotkeys[] =
+{
+    { N_("Toggle List"), PREF_PATH "use_hotkey_toggle_blist", PREF_PATH "hotkey_toggle_blist", 0, 0, FALSE, 0, 0 },
+    { N_("Read Message"), PREF_PATH "use_hotkey_read_msg", PREF_PATH "hotkey_read_msg", 0, 0, FALSE, 0, 0 },
+    { N_("Show Preferences Dialog"), PREF_PATH "use_hotkey_show_pref", PREF_PATH "hotkey_show_pref", 0, 0, FALSE, 0, 0 },
+    { N_("Show Accounts Dialog"), PREF_PATH "use_hotkey_show_acc", PREF_PATH "hotkey_show_acc", 0, 0, FALSE, 0, 0 },
+    { N_("Set Away Status"), PREF_PATH "use_hotkey_set_away", PREF_PATH "hotkey_set_away", 0, 0, FALSE, 0, 0},
+    { N_("New Status"), PREF_PATH "use_hotkey_new_status", PREF_PATH "hotkey_new_status", 0, 0, FALSE, 0, 0},
+};
+
+static const gint num_hotkeys = G_N_ELEMENTS(hotkeys);
+
+/* private functions */
+
+static gchar*
+gen_keystr(HotkeyEntry* key, GtkWidget* widget)
+{
+    gchar *str, *keyname;
+
+    str = NULL;
+    keyname = keycode_to_string(key->code, widget);
+    if (keyname)
+    {
+        str = g_strdup_printf("%c%c%c%c%s",
+                              key->mod & ShiftMask ? '*' : '.',
+                              key->mod & ControlMask ? '*' : '.',
+                              key->mod & Mod1Mask ? '*' : '.',
+                              key->mod & Mod4Mask ? '*' : '.',
+                              keyname);
+    }
+
+    return str;
+}
+
+static GList *
+get_pending_list(guint max)
+{
+	GList *l_im = NULL;
+	GList *l_chat = NULL;
+
+	l_im = pidgin_conversations_find_unseen_list(PURPLE_CONV_TYPE_IM,
+						     PIDGIN_UNSEEN_TEXT,
+						     FALSE, max);
+
+	l_chat = pidgin_conversations_find_unseen_list(PURPLE_CONV_TYPE_CHAT,
+		 				       PIDGIN_UNSEEN_NICK,
+						       FALSE, max);
+
+	if (l_im != NULL && l_chat != NULL)
+		return g_list_concat(l_im, l_chat);
+	else if (l_im != NULL)
+		return l_im;
+	else
+		return l_chat;
+}
+
+static gboolean
+event_filter(gpointer event_data)
+{
+    switch (real_event_filter(event_data, hotkeys, num_hotkeys))
+    {
+        case PIDGIN_HOTKEY_TOGGLE_BLIST:
+            pidgin_blist_toggle_visibility();
+#ifdef GDK_WINDOWING_X11
+	    {
+		PidginBuddyList *gtkblist;
+
+		if (purple_connections_get_all() &&
+		    (gtkblist = PIDGIN_BLIST(purple_get_blist())) != NULL &&
+		    gtkblist->window &&
+		    GTK_WIDGET_VISIBLE(gtkblist->window))
+		    hacky_active_window(gtkblist->window);
+	    }
+#endif
+            break;
+        case PIDGIN_HOTKEY_READ_MSG:
+	{
+	    GList *l;
+
+            if ((l = get_pending_list(1)))
+	    {
+		pidgin_conv_present_conversation((PurpleConversation *)l->data);
+
+#ifdef GDK_WINDOWING_X11
+		{
+		    GtkWindow *gtkwindow;
+
+		    gtkwindow = GTK_WINDOW(pidgin_conv_get_window(PIDGIN_CONVERSATION((PurpleConversation *)l->data))->window);
+		    /*gtk_window_present(gtkwindow);*/
+		    hacky_active_window(GTK_WIDGET(gtkwindow));
+		}
+#endif
+		g_list_free(l);
+	    }
+            break;
+	}
+	case PIDGIN_HOTKEY_SHOW_PREF:
+	    pidgin_prefs_show();
+            break;
+	case PIDGIN_HOTKEY_SHOW_ACC:
+	    pidgin_accounts_window_show();
+            break;
+			
+	//<Author "computomaniaco">
+    case PIDGIN_HOTKEY_SET_AWAY:
+            purple_debug(PURPLE_DEBUG_INFO, "hotkeys", "in setting away status\n");
+			PurpleSavedStatus * status = purple_savedstatus_get_current(); 
+			if(purple_savedstatus_get_type(status) == PURPLE_STATUS_AWAY)
+				purple_savedstatus_set_idleaway(FALSE);
+			else 
+				purple_savedstatus_set_idleaway(TRUE);
+            break;
+	//</Author>
+	
+    case PIDGIN_HOTKEY_NEW_STATUS:
+			pidgin_status_editor_show(FALSE, NULL);
+			break;
+    default:
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
+    static void
+grab_keys(GtkWidget* widget)
+{
+    gint i;
+    GdkDisplay* display;
+    GdkWindow* root;
+
+    display = widget ? gtk_widget_get_display(widget) : gdk_display_get_default();
+    root = widget ? gtk_widget_get_root_window(widget) : gdk_get_default_root_window();
+
+    for (i = 0; i < num_hotkeys; i++)
+    {
+        if (hotkeys[i].enable && hotkeys[i].code &&
+                grab_key(display, root, hotkeys + i))
+            reconfig_blist(i);
+    }
+
+    setup_filter(root, event_filter);
+}
+
+    static void
+free_keys(GtkWidget* widget)
+{
+    GdkDisplay* display;
+    GdkWindow* root;
+
+    display = widget ? gtk_widget_get_display(widget) : gdk_display_get_default();
+    root = widget ? gtk_widget_get_root_window(widget) : gdk_get_default_root_window();
+
+    _free_keys(display, root, hotkeys, num_hotkeys);
+    release_filter(root, event_filter);
+}
+
+static void
+hotkey_set_bool(GtkWidget *widget, HotkeyEntry* key)
+{
+    gboolean bool;
+    GdkDisplay* display;
+    GdkWindow* root;
+
+    bool = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget));
+    purple_prefs_set_bool(key->use_pref, bool);
+    
+    key->enable = bool;
+
+    if (key->code)
+    {
+        display = widget ? gtk_widget_get_display(widget) : gdk_display_get_default();
+        root = widget ? gtk_widget_get_root_window(widget) : gdk_get_default_root_window();
+
+        if (bool && grab_key(display, root, key))
+	    reconfig_blist(key - hotkeys);
+        else
+	{
+            free_key(display, root, key);
+	    reconfig_blist(key - hotkeys);
+	}
+    }
+}
+
+static void
+reconfig_blist(gint action)
+{
+    if (action == PIDGIN_HOTKEY_TOGGLE_BLIST)
+        reconfig_blist_cb(purple_get_blist(), 0);
+}
+
+static gboolean
+on_entry_key_release_event(GtkWidget * widget,
+                           GdkEventKey * event,
+                           gpointer user_data)
+{
+    HotkeyEntry* key;
+
+    key = (HotkeyEntry*)user_data;
+    if (!key->code_)
+    {
+        key->code_ = key->code;
+        key->mod_ = key->mod;
+        gtk_entry_set_text(GTK_ENTRY(widget), _("None"));
+    }
+
+    return FALSE;
+}
+
+static gboolean
+on_entry_focus_out_event(GtkWidget * widget,
+                         GdkEventFocus * event,
+                         gpointer user_data)
+{
+    HotkeyEntry* key;
+    gchar* keystr;
+    GdkDisplay* display;
+    GdkWindow* root;
+
+    key = (HotkeyEntry*)user_data;
+
+    if (key->enable && (key->code != key->code_ || key->mod != key->mod_))
+    {
+        display = widget ? gtk_widget_get_display(widget) : gdk_display_get_default();
+        root = widget ? gtk_widget_get_root_window(widget) : gdk_get_default_root_window();
+
+        if (key->code)
+	{
+            free_key(display, root, key);
+	    reconfig_blist(key - hotkeys);
+	}
+
+        key->code = key->code_;
+        key->mod = key->mod_;
+
+        keystr = gen_keystr(key, widget);
+        if (keystr)
+        {
+            purple_prefs_set_string(key->pref, keystr);
+            g_free(keystr);
+        }
+
+        if (key->code && grab_key(display, root, key))
+	    reconfig_blist(key - hotkeys);
+    }
+    else
+    {
+        key->code = key->code_;
+        key->mod = key->mod_;
+    }
+
+    return FALSE;
+}
+
+static gboolean
+on_entry_key_press_event(GtkWidget * widget,
+                         GdkEventKey * event,
+                         gpointer user_data)
+{
+    HotkeyEntry* key;
+    GString *temp;
+    gboolean isMod;
+    gint mod;
+    gchar* keyname;
+
+    key = (HotkeyEntry*)user_data;
+    mod = 0;
+    temp = g_string_sized_new(128);
+
+    isMod = FALSE;
+    if ((event->state & GDK_CONTROL_MASK) | (!isMod && (isMod = (event->keyval == GDK_Control_L || event->keyval == GDK_Control_R))))
+    {
+        mod |= ControlMask;
+        g_string_append(temp, " + Ctrl");
+    }
+
+    if ((event->state & GDK_MOD1_MASK) | (!isMod && (isMod = (event->keyval == GDK_Alt_L || event->keyval == GDK_Alt_R))))
+    {
+        mod |= Mod1Mask;
+        g_string_append(temp, " + Alt");
+    }
+
+    if ((event->state & GDK_SHIFT_MASK) | (!isMod && (isMod = (event->keyval == GDK_Shift_L || event->keyval == GDK_Shift_R))))
+    {
+        mod |= ShiftMask;
+        g_string_append(temp, " + Shift");
+    }
+
+    if ((event->state & GDK_MOD4_MASK) | (!isMod && (isMod = (event->keyval == GDK_Super_L || event->keyval == GDK_Super_R))))
+    {
+        mod |= Mod4Mask;
+        g_string_append(temp, " + Super");
+    }
+
+    keyname = NULL;
+    if (!isMod)
+    {
+        keyname = keycode_to_string(event->hardware_keycode, widget);
+        if (keyname)
+        {
+            g_string_append_printf(temp, " + %s", keyname);
+            key->code_ = event->hardware_keycode;
+            key->mod_ = mod;
+        }
+        else
+            g_string_assign(temp, "   None");
+    }
+
+    if (!keyname)
+    {
+        key->code_ = 0;
+        key->mod_ = 0;
+    }
+
+    gtk_entry_set_text(GTK_ENTRY(widget), temp->str + 3);
+    gtk_editable_set_position(GTK_EDITABLE(widget), -1);
+
+    g_string_free(temp, TRUE);
+
+    return FALSE;
+}
+
+/* callbacks */
+
+static void
+reconfig_blist_cb(PurpleBuddyList* blist, void *data)
+{
+    gboolean hide_taskbar, visible;
+    PidginBuddyList* gtkblist;
+    
+    if (blist)
+    {
+        gtkblist = PIDGIN_BLIST(blist);
+        if (gtkblist && gtkblist->window && GTK_WIDGET_REALIZED(gtkblist->window))
+        {
+            visible = GTK_WIDGET_VISIBLE(gtkblist->window);
+            if (visible)
+                purple_blist_set_visible(FALSE);
+            hide_taskbar = hotkeys[PIDGIN_HOTKEY_TOGGLE_BLIST].enable && hotkeys[PIDGIN_HOTKEY_TOGGLE_BLIST].code != 0;
+            gdk_window_set_type_hint(gtkblist->window->window, hide_taskbar ? GDK_WINDOW_TYPE_HINT_DIALOG : GDK_WINDOW_TYPE_HINT_NORMAL);
+            gdk_window_set_skip_taskbar_hint(gtkblist->window->window, hide_taskbar);
+            if (visible)
+                purple_blist_set_visible(TRUE);
+        }
+    }
+}
+
+/* plugin glue */
+
+#define HOTKEYS_PLUGIN_ID "gtk-hotkey"
+
+static gboolean
+plugin_load(PurplePlugin *plugin)
+{
+    gint i;
+
+    purple_debug(PURPLE_DEBUG_INFO, "hotkeys", "plugin loaded\n");
+
+    handle = plugin;
+
+    for (i = 0; i < num_hotkeys; i++)
+    {
+	gboolean old_format;
+	HotkeyEntry* key = hotkeys + i;
+	const gchar *keystr = purple_prefs_get_string(key->pref);
+
+	key->enable = purple_prefs_get_bool(key->use_pref);
+	if (!keystr || strlen(keystr) < 4)
+	    continue;
+	old_format = keystr[3] != '*' && keystr[3] != '.';
+        parse_keystr(keystr + (old_format ? 3 : 4),
+		     NULL, key);
+	if (key->code)
+	{
+	    if (keystr[0] == '*')
+		key->mod |= ShiftMask;
+	    if (keystr[1] == '*')
+		key->mod |= ControlMask;
+	    if (keystr[2] == '*')
+		key->mod |= Mod1Mask;
+	    if (!old_format && keystr[3] == '*')
+		key->mod |= Mod4Mask;
+	}
+    }
+    grab_keys(NULL);
+    purple_signal_connect(pidgin_blist_get_handle(), "gtkblist-created",
+			plugin, PURPLE_CALLBACK(reconfig_blist_cb), NULL);
+    reconfig_blist(PIDGIN_HOTKEY_TOGGLE_BLIST);
+
+    return TRUE;
+}
+
+static gboolean
+plugin_unload(PurplePlugin *plugin)
+{
+    hotkeys[PIDGIN_HOTKEY_TOGGLE_BLIST].enable = FALSE;
+    reconfig_blist(PIDGIN_HOTKEY_TOGGLE_BLIST);
+    free_keys(NULL);
+
+    purple_debug(PURPLE_DEBUG_INFO, "hotkeys", "plugin unloaded\n");
+
+    return TRUE;
+}
+
+static GtkWidget *
+plugin_config_frame(PurplePlugin *plugin)
+{
+    GtkWidget *frame;
+    GtkWidget *vbox, *table;
+    GtkWidget *toggle, *entry;
+    gint i;
+
+    frame = gtk_vbox_new(FALSE, 18);
+    gtk_container_set_border_width(GTK_CONTAINER(frame), 12);
+
+    vbox = pidgin_make_frame(frame, _("Hotkeys Configuration"));
+    table = gtk_table_new(num_hotkeys, 2, FALSE);
+    gtk_table_set_col_spacings(GTK_TABLE(table), 5);
+    gtk_table_set_row_spacings(GTK_TABLE(table), 10);
+    gtk_container_add(GTK_CONTAINER(vbox), table);
+
+    for (i = 0; i < num_hotkeys; i++)
+    {
+        GdkEventKey key_event;
+
+        toggle = gtk_check_button_new_with_mnemonic(_(hotkeys[i].name));
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(toggle), hotkeys[i].enable);
+        gtk_misc_set_alignment(GTK_MISC(toggle), 1.0, 0.5);
+        gtk_table_attach(GTK_TABLE(table), toggle, 0, 1, i, i + 1, GTK_FILL, 0, 0, 0);
+        g_signal_connect(G_OBJECT(toggle), "clicked",
+                         G_CALLBACK(hotkey_set_bool), hotkeys + i);
+
+        entry = gtk_entry_new();
+        gtk_table_attach(GTK_TABLE(table), entry, 1, 2, i, i + 1, GTK_FILL, 0, 0, 0);
+        gtk_editable_set_editable(GTK_EDITABLE(entry), FALSE);
+
+        key_event.hardware_keycode = hotkeys[i].code;
+        key_event.state = 0;
+        if (hotkeys[i].mod & ControlMask)
+            key_event.state |= GDK_CONTROL_MASK;
+        if (hotkeys[i].mod & Mod1Mask)
+            key_event.state |= GDK_MOD1_MASK;
+        if (hotkeys[i].mod & ShiftMask)
+            key_event.state |= GDK_SHIFT_MASK;
+        if (hotkeys[i].mod & Mod4Mask)
+            key_event.state |= GDK_MOD4_MASK;
+        on_entry_key_press_event(entry, &key_event, hotkeys + i);
+
+        g_signal_connect((gpointer)entry, "key_press_event",
+                         G_CALLBACK(on_entry_key_press_event), hotkeys + i);
+        g_signal_connect((gpointer)entry, "key_release_event",
+                         G_CALLBACK(on_entry_key_release_event), hotkeys + i);
+        g_signal_connect((gpointer)entry, "focus_out_event",
+                         G_CALLBACK(on_entry_focus_out_event), hotkeys + i);
+    }
+
+    gtk_widget_show_all(frame);
+    return frame;
+}
+
+static PidginPluginUiInfo ui_info =
+{
+    plugin_config_frame,
+    0,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+};
+
+static PurplePluginInfo info =
+{
+    PURPLE_PLUGIN_MAGIC,
+    PURPLE_MAJOR_VERSION,
+    PURPLE_MINOR_VERSION,
+    PURPLE_PLUGIN_STANDARD,                           /**< type           */
+    PIDGIN_PLUGIN_TYPE,                               /**< ui_requirement */
+    0,                                                /**< flags          */
+    NULL,                                             /**< dependencies   */
+    PURPLE_PRIORITY_DEFAULT,                          /**< priority       */
+
+    HOTKEYS_PLUGIN_ID,                                /**< id             */
+    N_("Hotkeys"),                                    /**< name           */
+    VERSION,                                          /**< version        */
+                                                      /**  summary        */
+    N_("Configurable global hotkeys."),               /**  description    */
+    N_("This plugin allows you to assign global "
+       "hotkeys for toggling buddy list and reading "
+       "queued messages."),
+       "Ivan Wong <email@ivanwong.info>",             /**< author         */
+       "http://gaim-hotkeys.sourceforge.net/",        /**< homepage       */
+
+    plugin_load,                                      /**< load           */
+    plugin_unload,                                    /**< unload         */
+    NULL,                                             /**< destroy        */
+
+    &ui_info,                                         /**< ui_info        */
+    NULL,                                             /**< extra_info     */
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+};
+
+static void
+plugin_init(PurplePlugin *plugin)
+{
+    gint i;
+
+#ifdef ENABLE_NLS
+    gchar *locale_dir = g_build_filename(HOTKEYS_DATADIR, "locale", NULL);
+    bindtextdomain(GETTEXT_PACKAGE, locale_dir);
+    g_free(locale_dir);
+    bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
+#endif
+
+    /* we have to translate it here as we are in a different textdomain */
+    plugin->info->name = _(plugin->info->name);
+    plugin->info->summary = _(plugin->info->summary);
+    plugin->info->description = _(plugin->info->description);
+
+    purple_prefs_add_none(PREF_ROOT);
+
+    for (i = 0; i < num_hotkeys; i++)
+    {
+        purple_prefs_add_bool(hotkeys[i].use_pref, FALSE);
+        purple_prefs_add_string(hotkeys[i].pref, "");
+    }
+}
+
+PURPLE_INIT_PLUGIN(hotkeys, plugin_init, info)

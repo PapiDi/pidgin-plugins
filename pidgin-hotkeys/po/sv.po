@@ -1,0 +1,66 @@
+# Swedish translation of pidgin-hotkeys.
+# Copyright (C) 2006 THE pidgin-hotkeys'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the pidgin-hotkeys package.
+# Daniel Nylander <po@danielnylander.se>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pidgin-hotkeys 0.1.3-1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-05-08 12:11+0800\n"
+"PO-Revision-Date: 2006-01-15 20:18+0100\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/hotkeys.c:78
+msgid "Toggle List"
+msgstr "Växla lista"
+
+#: src/hotkeys.c:79
+msgid "Read Message"
+msgstr "Läs meddelande"
+
+#: src/hotkeys.c:80
+msgid "Show Preferences Dialog"
+msgstr "Visa inställningsdialog"
+
+#: src/hotkeys.c:81
+msgid "Show Accounts Dialog"
+msgstr "Visa kontodialog"
+
+#: src/hotkeys.c:262
+msgid "None"
+msgstr "Ingen"
+
+#: src/hotkeys.c:474
+msgid "Hotkeys Configuration"
+msgstr "Konfiguration av snabbtangenter"
+
+#. *< type
+#. *< ui_requirement
+#. *< flags
+#. *< dependencies
+#. *< priority
+#. *< id
+#: src/hotkeys.c:541
+msgid "Hotkeys"
+msgstr "Snabbtangenter"
+
+#. *< name
+#. *< version
+#. *  summary
+#: src/hotkeys.c:544
+msgid "Configurable global hotkeys."
+msgstr "Konfigurerbara globala snabbtangenter."
+
+#. *  description
+#: src/hotkeys.c:545
+msgid ""
+"This plugin allows you to assign global hotkeys for toggling buddy list and "
+"reading queued messages."
+msgstr ""
+"Den här insticksmodulen låter dig tilldela globala snabbtangenter för att "
+"växling av kompislista och läsa köade meddelanden."
