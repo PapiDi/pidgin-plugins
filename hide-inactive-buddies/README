@@ -1,0 +1,33 @@
+============================================================ 
+Pidgin Hide Inactive buddies plugin
+Author:  Sumit Kumar Agrawal
+Mail ID: talktosumit@gmail.com
+=============================================================
+
+What?
+	Hide inactive plugin allows you hide those buddies from buddy list who are not "Available."
+	You can use this plugin to hide away, extended away, busy, idle buddies as well as those who are on mobile or listening to music. 
+
+How?
+	1. Apply the patch first. As the name suggest this patch is build against pidgin v 2.5.3. 
+	2. Build pidgin 2.5.3 source. (check pidgin documentation on building instruction)
+	4. copy .c file in $PIDGIN_HOME/pidgin/plugins directory.
+	5. build plugin using command "make hide_inactive.so"
+
+Where should I report a problem?
+    Submit as a bug/issue on http://code.google.com/p/pidgin-plugins/ with
+	   1. complete problem detail
+	   2. steps to reproduce
+	   3. pidgin log file (run pidgin with -d option and capture the complete output)
+	   4. backtrace (check pidgin documentation on how to get backtrace)
+	
+More?
+	Feel free. Questions & Suggestion will be answered as and when I'll have time.
+
+Why no dll for windows?
+	cause this plugin requires some changes in pidgin core, which means anyway you need to build pidgin on windows. 
+	but don't worry too much, setting pidgin build environment on window is very easy and if you are on a decent internet connection, it would be much easier for you.
+	Check pidgin site (pidgin.im) for details on how to build pidgin on windows (google->building pidgin on windows)
+
+Enjoy,
+SA
