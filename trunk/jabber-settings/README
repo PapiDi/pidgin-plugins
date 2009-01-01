@@ -1,0 +1,25 @@
+============================================================ 
+Jabber settings plugin
+Author:  Sumit Kumar Agrawal
+Mail ID: talktosumit@gmail.com
+=============================================================
+
+What?
+	Plugin which allows you to block "left conversation" notification and show "off the record" notification 
+
+How?
+	1. copy .c file in $PIDGIN_HOME/libpurple/plugins directory.
+	2. build plugin using command "make jabber_settings.so"
+
+Where should I report a problem?
+    Submit as a bug/issue on http://code.google.com/p/pidgin-plugins/ with
+	   1. complete problem detail
+	   2. steps to reproduce
+	   3. pidgin log file (run pidgin with -d option and capture the complete output)
+	   4. backtrace (check pidgin documentation on how to get backtrace)
+	
+More?
+	Feel free. Questions & Suggestion will be answered as and when I'll have time.
+
+Enjoy,
+SA
