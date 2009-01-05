@@ -1,0 +1,30 @@
+============================================================ 
+Pidgin Language Translator plugin
+Author:  Sumit Kumar Agrawal
+Mail ID: talktosumit@gmail.com
+=============================================================
+
+What?
+	Language translator plugin allows you to write your conversation in english and converts each word in the selected language. 
+
+How?
+	1. copy .c file in $PIDGIN_HOME/pidgin/plugins directory.
+	2. build plugin using command "make language_translator.so"
+	3. copy the configuration files (all files in conf directory) in your $home/.purple directory. 
+
+
+Where should I report a problem?
+    Submit as a bug/issue on http://code.google.com/p/pidgin-plugins/ with
+	   1. complete problem detail
+	   2. steps to reproduce
+	   3. pidgin log file (run pidgin with -d option and capture the complete output)
+	   4. backtrace (check pidgin documentation on how to get backtrace)
+	
+More?
+	Feel free. Questions & Suggestion will be answered as and when I'll have time.
+
+Why no installer?
+	Cause its straight forward and easy to do. (you might have already build pidgin if you are on linux)
+
+Enjoy,
+SA
