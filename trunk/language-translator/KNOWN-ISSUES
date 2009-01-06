@@ -1,0 +1,15 @@
+KNOWN ISSUES
+
+1. Plugin does not read the default language of pidgin evironment (loale on linux, PIDGINLANG on windows)
+workaround: 
+when plugin is enabled default global language is set to engligh unless otherwise changed. You can change global language to your selected languge using plugin configuration. 
+
+2. Pidgin crashes while closing if some conversation is open.
+workaround:
+Problem with pidgin termination behaviour. conversation are closed without waiting for signals to finish. This causes pidgin to crash.
+However this happens after buddy list, logs, prefs and every thing is saved. So not much loss there.
+
+3. plugin replaces commands also. 
+workaround:
+currenty plugin does take care of conversation commands (like /help). but you can get the typed word by hitting backspace after the word is replaced.
+
