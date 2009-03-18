@@ -1,0 +1,261 @@
+--- pidgin-2.5.5_original/libpurple/blist.h	2008-12-16 00:13:02.000000000 +0530
++++ pidgin-2.5.5/libpurple/blist.h	2009-03-17 12:37:16.000000000 +0530
+@@ -71,8 +71,8 @@
+ 
+ typedef enum
+ {
+-	PURPLE_BLIST_NODE_FLAG_NO_SAVE      = 1 << 0 /**< node should not be saved with the buddy list */
+-
++	PURPLE_BLIST_NODE_FLAG_NO_SAVE      = 1 << 0, /**< node should not be saved with the buddy list */
++	PURPLE_BLIST_NODE_FLAG_NO_DISPLAY	= 1 << 1
+ } PurpleBlistNodeFlags;
+ 
+ #define PURPLE_BLIST_NODE_HAS_FLAG(b, f) (purple_blist_node_get_flags((PurpleBlistNode*)(b)) & (f))
+--- pidgin-2.5.5_original/pidgin/gtkblist.c	2009-03-02 01:07:13.000000000 +0530
++++ pidgin-2.5.5/pidgin/gtkblist.c	2009-03-17 12:35:36.000000000 +0530
+@@ -162,6 +162,8 @@
+ static char *pidgin_get_group_title(PurpleBlistNode *gnode, gboolean expanded);
+ static void pidgin_blist_expand_contact_cb(GtkWidget *w, PurpleBlistNode *node);
+ static void set_urgent(void);
++static gboolean pidgin_buddy_should_show(const PurpleBuddy *  buddy);
++static int pidgin_blist_get_active_count(PurpleGroup * group);
+ 
+ typedef enum {
+ 	PIDGIN_BLIST_NODE_HAS_PENDING_MESSAGE    =  1 << 0,  /* Whether there's pending message in a conversation */
+@@ -763,7 +765,7 @@
+ 	}
+ }
+ 
+-static void gtk_blist_menu_showoffline_cb(GtkWidget *w, PurpleBlistNode *node)
++static void gtk_blist_menu_showalways_cb(GtkWidget *w, PurpleBlistNode *node)
+ {
+ 	if (PURPLE_BLIST_NODE_IS_BUDDY(node))
+ 	{
+@@ -781,7 +783,7 @@
+ 			purple_blist_node_set_bool(bnode, "show_offline", setting);
+ 			pidgin_blist_update(purple_get_blist(), bnode);
+ 		}
+-	} else if (PURPLE_BLIST_NODE_IS_GROUP(node)) {
++	} /*else if (PURPLE_BLIST_NODE_IS_GROUP(node)) {
+ 		PurpleBlistNode *cnode, *bnode;
+ 		gboolean setting = !purple_blist_node_get_bool(node, "show_offline");
+ 
+@@ -793,7 +795,7 @@
+ 				pidgin_blist_update(purple_get_blist(), bnode);
+ 			}
+ 		}
+-	}
++	}*/
+ }
+ 
+ static void gtk_blist_show_systemlog_cb(void)
+@@ -1418,7 +1420,6 @@
+ 	PurpleContact *contact;
+ 	PurpleBlistNode *node;
+ 	gboolean contact_expanded = FALSE;
+-	gboolean show_offline = FALSE;
+ 
+ 	g_return_if_fail(menu);
+ 	g_return_if_fail(buddy);
+@@ -1463,9 +1464,9 @@
+ 	}
+ 
+ 	if (!(purple_blist_node_get_flags(node) & PURPLE_BLIST_NODE_FLAG_NO_SAVE)) {
+-		show_offline = purple_blist_node_get_bool(node, "show_offline");
+-		pidgin_new_item_from_stock(menu, show_offline ? _("Hide when offline") : _("Show when offline"),
+-				NULL, G_CALLBACK(gtk_blist_menu_showoffline_cb), node, 0, 0, NULL);
++		gboolean show_always = purple_blist_node_get_bool(node, "show_offline");
++		pidgin_new_check_item(menu, _("Show Always"),
++				G_CALLBACK(gtk_blist_menu_showalways_cb), node, show_always);
+ 	}
+ 
+ 	pidgin_append_blist_node_proto_menu(menu, buddy->account->gc, node);
+@@ -1591,11 +1592,11 @@
+ 				 G_CALLBACK(pidgin_blist_remove_cb), node, 0, 0, NULL);
+ 	pidgin_new_item_from_stock(menu, _("_Rename"), NULL,
+ 				 G_CALLBACK(gtk_blist_menu_alias_cb), node, 0, 0, NULL);
+-	if (!(purple_blist_node_get_flags(node) & PURPLE_BLIST_NODE_FLAG_NO_SAVE)) {
+-		gboolean show_offline = purple_blist_node_get_bool(node, "show_offline");
+-		pidgin_new_item_from_stock(menu, show_offline ? _("Hide when offline") : _("Show when offline"),
+-				NULL, G_CALLBACK(gtk_blist_menu_showoffline_cb), node, 0, 0, NULL);
+-	}
++/*	if (!(purple_blist_node_get_flags(node) & PURPLE_BLIST_NODE_FLAG_NO_SAVE)) {
++		gboolean show_always = purple_blist_node_get_bool(node, "show_offline");
++		pidgin_new_check_item(menu, _("Show Always"),
++				G_CALLBACK(gtk_blist_menu_showalways_cb), node, show_always);
++	}*/
+ 
+ 	add_buddy_icon_menu_items(menu, node);
+ 
+@@ -1677,7 +1678,7 @@
+ 	struct _pidgin_blist_node *gtknode = (struct _pidgin_blist_node *)node->ui_data;
+ 	GtkWidget *menu;
+ 	GtkWidget *menuitem;
+-	gboolean show_offline = purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/blist/show_offline_buddies");
++	gboolean show_all_buddies = purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/blist/show_offline_buddies");
+ 
+ 	menu = gtk_menu_new();
+ 	pidgin_blist_make_buddy_menu(menu, b, FALSE);
+@@ -1711,7 +1712,8 @@
+ 					continue;
+ 				if(!buddy->account->gc)
+ 					continue;
+-				if(!show_offline && !PURPLE_BUDDY_IS_ONLINE(buddy))
++				if(!show_all_buddies)
++					if(buddy  == NULL|| !purple_account_is_connected(purple_buddy_get_account(b)) ||  !pidgin_buddy_should_show(buddy))
+ 					continue;
+ 
+ 				menuitem = gtk_image_menu_item_new_with_label(buddy->name);
+@@ -3127,10 +3129,11 @@
+ 	gtknode = ((PurpleBlistNode*)buddy)->ui_data;
+ 
+ 	return (purple_account_is_connected(buddy->account) &&
+-			(purple_presence_is_online(buddy->presence) ||
+-			 (gtknode && gtknode->recent_signonoff) ||
+-			 purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/blist/show_offline_buddies") ||
+-			 purple_blist_node_get_bool((PurpleBlistNode*)buddy, "show_offline")));
++			(purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/blist/show_offline_buddies") ||
++			 purple_blist_node_get_bool((PurpleBlistNode*)buddy, "show_offline") || 
++			 pidgin_buddy_should_show(buddy) || 
++			 (gtknode && gtknode->recent_signonoff)
++			 ));
+ }
+ 
+ void pidgin_blist_draw_tooltip(PurpleBlistNode *node, GtkWidget *widget)
+@@ -3266,7 +3269,7 @@
+ 	{ N_("/Buddies/View User _Log..."), "<CTL>L", pidgin_dialogs_log, 0, "<Item>", NULL },
+ 	{ "/Buddies/sep1", NULL, NULL, 0, "<Separator>", NULL },
+ 	{ N_("/Buddies/Sh_ow"), NULL, NULL, 0, "<Branch>", NULL},
+-	{ N_("/Buddies/Show/_Offline Buddies"), NULL, pidgin_blist_edit_mode_cb, 1, "<CheckItem>", NULL },
++	{ N_("/Buddies/Show/_All Buddies"), NULL, pidgin_blist_edit_mode_cb, 1, "<CheckItem>", NULL },
+ 	{ N_("/Buddies/Show/_Empty Groups"), NULL, pidgin_blist_show_empty_groups_cb, 1, "<CheckItem>", NULL },
+ 	{ N_("/Buddies/Show/Buddy _Details"), NULL, pidgin_blist_buddy_details_cb, 1, "<CheckItem>", NULL },
+ 	{ N_("/Buddies/Show/Idle _Times"), NULL, pidgin_blist_show_idle_time_cb, 1, "<CheckItem>", NULL },
+@@ -5611,7 +5614,7 @@
+ 	/* set the Show Offline Buddies option. must be done
+ 	 * after the treeview or faceprint gets mad. -Robot101
+ 	 */
+-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(gtk_item_factory_get_item (gtkblist->ift, N_("/Buddies/Show/Offline Buddies"))),
++	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(gtk_item_factory_get_item (gtkblist->ift, N_("/Buddies/Show/All Buddies"))),
+ 			purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/blist/show_offline_buddies"));
+ 
+ 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(gtk_item_factory_get_item (gtkblist->ift, N_("/Buddies/Show/Empty Groups"))),
+@@ -5926,24 +5929,75 @@
+ 	return TRUE;
+ }
+ 
+-static gboolean pidgin_blist_group_has_show_offline_buddy(PurpleGroup *group)
++static gboolean pidgin_blist_group_has_show_always_buddy(PurpleGroup *group)
+ {
+-	PurpleBlistNode *gnode, *cnode, *bnode;
++	PurpleBlistNode *gnode, *cnode;
+ 
+ 	gnode = (PurpleBlistNode *)group;
+-	for(cnode = gnode->child; cnode; cnode = cnode->next) {
+-		if(PURPLE_BLIST_NODE_IS_CONTACT(cnode)) {
+-			for(bnode = cnode->child; bnode; bnode = bnode->next) {
+-				PurpleBuddy *buddy = (PurpleBuddy *)bnode;
+-				if (purple_account_is_connected(buddy->account) &&
+-					purple_blist_node_get_bool(bnode, "show_offline"))
++	for(cnode = gnode->child; cnode; cnode = cnode->next) 
++	{
++		if(PURPLE_BLIST_NODE_IS_CONTACT(cnode)) 
++		{
++			PurpleBuddy * buddy = purple_contact_get_priority_buddy((PurpleContact*)cnode);
++			if (buddy && purple_account_is_connected(buddy->account) && purple_blist_node_get_bool(cnode, "show_always"))
++			{
+ 					return TRUE;
+ 			}
+ 		}
++		else if (PURPLE_BLIST_NODE_IS_CHAT(cnode))
++		{
++			PurpleChat * chat = (PurpleChat *) cnode;
++			if(purple_account_is_connected(chat->account) && purple_blist_node_get_bool(cnode, "show_always"))
++				return TRUE;
++		}
+ 	}
+ 	return FALSE;
+ }
+ 
++static gboolean 
++pidgin_buddy_should_show(const PurpleBuddy * buddy)
++{
++	return purple_presence_is_online(buddy->presence) && !PURPLE_BLIST_NODE_HAS_FLAG(buddy, PURPLE_BLIST_NODE_FLAG_NO_DISPLAY);
++}
++
++/** 
++ * Determines the number of active buddies in a group
++ *
++ * @param group The group
++ * 
++ */
++static int pidgin_blist_get_active_count(PurpleGroup * group)
++{
++	PurpleBlistNode *gnode, *cnode;
++	int online = 0, inactive = 0;
++	if (!group)
++		return 0;
++	
++	gnode = (PurpleBlistNode *)group;
++	for(cnode = gnode->child; cnode; cnode = cnode->next) 
++	{
++		if(PURPLE_BLIST_NODE_IS_CONTACT(cnode)) 
++		{
++			PurpleBuddy * buddy = purple_contact_get_priority_buddy((PurpleContact*)cnode);
++			if (buddy && purple_account_is_connected(buddy->account))
++			{
++				online ++;
++				if(!buddy_is_displayable(buddy))
++				{
++					inactive ++;
++				}
++			}
++		}
++		else if (PURPLE_BLIST_NODE_IS_CHAT(cnode))
++		{
++			PurpleChat * chat = (PurpleChat *) cnode;
++			if(purple_account_is_connected(chat->account))
++				online ++;
++		}
++	}
++	return (online - inactive); 
++}
++
+ /* This version of pidgin_blist_update_group can take the original buddy or a
+  * group, but has much better algorithmic performance with a pre-known buddy.
+  */
+@@ -5953,7 +6007,7 @@
+ 	gint count;
+ 	PurpleGroup *group;
+ 	PurpleBlistNode* gnode;
+-	gboolean show = FALSE, show_offline = FALSE;
++	gboolean show = FALSE, show_all_buddies = FALSE;
+ 
+ 	g_return_if_fail(node != NULL);
+ 
+@@ -5971,20 +6025,20 @@
+ 
+ 	group = (PurpleGroup*)gnode;
+ 
+-	show_offline = purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/blist/show_offline_buddies");
++	show_all_buddies = purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/blist/show_offline_buddies");
+ 
+-	if(show_offline)
++	if(show_all_buddies)
+ 		count = purple_blist_get_group_size(group, FALSE);
+ 	else
+-		count = purple_blist_get_group_online_count(group);
++		count =  pidgin_blist_get_active_count(group);
+ 
+ 	if (count > 0 || purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/blist/show_empty_groups"))
+ 		show = TRUE;
+ 	else if (PURPLE_BLIST_NODE_IS_BUDDY(node)) { /* Or chat? */
+ 		if (buddy_is_displayable((PurpleBuddy*)node))
+ 			show = TRUE;
+-	} else if (!show_offline && PURPLE_BLIST_NODE_IS_GROUP(node)) {
+-		show = pidgin_blist_group_has_show_offline_buddy(group);
++	} else if (!show_all_buddies && PURPLE_BLIST_NODE_IS_GROUP(node)) {
++		show = pidgin_blist_group_has_show_always_buddy(group);
+ 	}
+ 
+ 	if (show) {
